@@ -1,0 +1,12 @@
+gcc -c -o ./dpi_functions.o ./test/tb/dpi_functions.c
+
+verilator --assert --Wall --cc --trace  ./rtl/top.v ./rtl/dff_en.v ./rtl/instrmemory.v ./rtl/dff_clk.v ./rtl/Reg_file.v ./rtl/decoder.v ./rtl/Control_Unit.v ./rtl/ALU.v ./rtl/ALUdec.v --exe ./test/tb/tb_test_env.cpp ./test/tb/dpi_functions.c
+
+make -C obj_dir -f Vtop.mk
+
+./obj_dir/Vtop | tee res.txt
+
+rm -r dpi_functions.o 
+rm -r obj_dir/
+rm -r res.txt 
+
