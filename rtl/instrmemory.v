@@ -1,7 +1,7 @@
 module instrmemory 
 #(
     parameter SIZE = 2048,
-    parameter MEMFILE = "/home/almas/MultiCycleLast/rtl/instructions.hex"  // Parameterized file path
+    parameter MEMFILE = "/home/almas/RISCV-Multicycle/instructions/rv64mi-p-ma_addr.hex"  // Parameterized file path
 )
 (
     input [31:0] wd,      // Write data
