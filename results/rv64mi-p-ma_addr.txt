@@ -1,0 +1,6 @@
+Starting simulation...
+VCD waveform file: waveform.vcd
+PASS
+PASS
+Simulation complete. Total cycles: 5000
+To view waveforms, run: gtkwave waveform.vcd

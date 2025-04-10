@@ -1,4 +1,4 @@
-tb_test_env.o: ../test/tb/tb_test_env.cpp \
+testbench.o: ../test/tb/testbench.cpp \
  /usr/local/share/verilator/include/verilated.h \
  /usr/local/share/verilator/include/verilatedos.h \
  /usr/local/share/verilator/include/verilated_config.h \

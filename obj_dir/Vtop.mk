@@ -44,7 +44,7 @@ VM_USER_LDLIBS = \
 # User .cpp files (from .cpp's on Verilator command line)
 VM_USER_CLASSES = \
 	dpi_functions \
-	tb_test_env \
+	testbench \
 
 # User .cpp directories (from .cpp's on Verilator command line)
 VM_USER_DIR = \
@@ -63,7 +63,7 @@ VPATH += $(VM_USER_DIR)
 
 dpi_functions.o: ./test/tb/dpi_functions.c 
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST)  -c -o $@ $<
-tb_test_env.o: ./test/tb/tb_test_env.cpp 
+testbench.o: ./test/tb/testbench.cpp 
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST)  -c -o $@ $<
 
 ### Link rules... (from --exe)
