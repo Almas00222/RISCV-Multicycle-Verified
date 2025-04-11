@@ -23,7 +23,7 @@ rv-test:
 	@echo ""
 	@read -p "Enter test name: " test_name; \
 	echo $$test_name > $(TEST); \
-	python3 converter.py ./riscv-tests/isa/$$test_name.dump ./instructions/$$test_name.hex
+	python3 ./test/converter.py ./riscv-tests/isa/$$test_name.dump ./instructions/$$test_name.hex
 
 
 clean:
