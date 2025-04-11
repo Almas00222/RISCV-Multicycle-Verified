@@ -7,13 +7,20 @@ all:
 	gcc -c -o ./dpi_functions.o ./test/tb/dpi_functions.c
 	verilator --assert --Wall --cc --trace $(RTL_FILES) --exe $(TB_FILES)
 	$(MAKE) -C obj_dir -f Vtop.mk
-	./obj_dir/Vtop | tee ./results/$$test.txt; \
+	if [ -f $(TEST) ]; then \
+		test_name=$$(cat $(TEST)) && ./obj_dir/Vtop | tee ./results/$$test_name-result.txt; \
+	else \
+		./obj_dir/Vtop | tee ./results/unknown_test-result.txt; \
+	fi
 
 prepare-directories:
 	mkdir -p ./results
 	mkdir -p ./instructions
 	
 rv-test:
+	@echo "Available tests:"
+	@ls -1 ./riscv-tests/isa/*.dump | sed 's|.*/||' | sed 's|\.dump$$||'
+	@echo ""
 	@read -p "Enter test name: " test_name; \
 	echo $$test_name > $(TEST); \
 	python3 converter.py ./riscv-tests/isa/$$test_name.dump ./instructions/$$test_name.hex

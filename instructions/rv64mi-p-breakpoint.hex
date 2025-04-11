@@ -1,0 +1,105 @@
+0540006f  // j	80000054 <reset_vector>
+00800f93  // li	t6,8
+03ff0a63  // beq	t5,t6,80000040 <write_tohost>
+00900f93  // li	t6,9
+03ff0663  // beq	t5,t6,80000040 <write_tohost>
+00b00f93  // li	t6,11
+03ff0263  // beq	t5,t6,80000040 <write_tohost>
+2c8f0f13  // addi	t5,t5,712 # 800002e8 <mtvec_handler>
+000f0463  // beqz	t5,80000030 <trap_vector+0x2c>
+0040006f  // j	8000003c <handle_exception>
+5391e193  // ori	gp,gp,1337
+fc3f2023  // sw	gp,-64(t5) # 80001000 <tohost>
+fa0f2e23  // sw	zero,-68(t5) # 80001004 <tohost+0x4>
+ff1ff06f  // j	80000040 <write_tohost>
+00000093  // li	ra,0
+00000113  // li	sp,0
+00000193  // li	gp,0
+00000213  // li	tp,0
+00000293  // li	t0,0
+00000313  // li	t1,0
+00000393  // li	t2,0
+00000413  // li	s0,0
+00000493  // li	s1,0
+00000513  // li	a0,0
+00000593  // li	a1,0
+00000613  // li	a2,0
+00000693  // li	a3,0
+00000713  // li	a4,0
+00000793  // li	a5,0
+00000813  // li	a6,0
+00000893  // li	a7,0
+00000913  // li	s2,0
+00000993  // li	s3,0
+00000a13  // li	s4,0
+00000a93  // li	s5,0
+00000b13  // li	s6,0
+00000b93  // li	s7,0
+00000c13  // li	s8,0
+00000c93  // li	s9,0
+00000d13  // li	s10,0
+00000d93  // li	s11,0
+00000e13  // li	t3,0
+00000e93  // li	t4,0
+00000f13  // li	t5,0
+00000f93  // li	t6,0
+01028293  // addi	t0,t0,16 # 800000e8 <reset_vector+0x94>
+01028293  // addi	t0,t0,16 # 800000f8 <reset_vector+0xa4>
+02428293  // addi	t0,t0,36 # 8000011c <reset_vector+0xc8>
+fff28293  // addi	t0,t0,-1
+01f00293  // li	t0,31
+01428293  // addi	t0,t0,20 # 80000134 <reset_vector+0xe0>
+00000193  // li	gp,0
+ecc28293  // addi	t0,t0,-308 # 80000004 <trap_vector>
+00100513  // li	a0,1
+01f51513  // slli	a0,a0,0x1f
+00100193  // li	gp,1
+05d00893  // li	a7,93
+00000513  // li	a0,0
+00000073  // ecall
+00000293  // li	t0,0
+00028a63  // beqz	t0,8000017c <reset_vector+0x128>
+01428293  // addi	t0,t0,20 # 800001a0 <reset_vector+0x14c>
+00200193  // li	gp,2
+01450513  // addi	a0,a0,20 # 800001b8 <reset_vector+0x164>
+00800593  // li	a1,8
+02460613  // addi	a2,a2,36 # 800001f0 <reset_vector+0x19c>
+04450513  // addi	a0,a0,68
+0c000463  // beqz	zero,800002b8 <fail>
+00300193  // li	gp,3
+00062503  // lw	a0,0(a2)
+00400193  // li	gp,4
+04150513  // addi	a0,a0,65
+de860613  // addi	a2,a2,-536 # 80002000 <begin_signature>
+00062603  // lw	a2,0(a2)
+08060863  // beqz	a2,800002b8 <fail>
+00500193  // li	gp,5
+00062023  // sw	zero,0(a2)
+00600193  // li	gp,6
+04250513  // addi	a0,a0,66
+00c62023  // sw	a2,0(a2)
+00700193  // li	gp,7
+00062603  // lw	a2,0(a2)
+00100513  // li	a0,1
+04150513  // addi	a0,a0,65
+d8468693  // addi	a3,a3,-636 # 80002004 <data2>
+00800193  // li	gp,8
+0006a683  // lw	a3,0(a3)
+02068263  // beqz	a3,800002b8 <fail>
+00a00193  // li	gp,10
+d6460613  // addi	a2,a2,-668 # 80002000 <begin_signature>
+00c62023  // sw	a2,0(a2)
+00b00193  // li	gp,11
+00062603  // lw	a2,0(a2)
+00018063  // beqz	gp,800002bc <fail+0x4>
+00119193  // slli	gp,gp,0x1
+0011e193  // ori	gp,gp,1
+05d00893  // li	a7,93
+00018513  // mv	a0,gp
+00000073  // ecall
+00100193  // li	gp,1
+05d00893  // li	a7,93
+00000513  // li	a0,0
+00000073  // ecall
+00300293  // li	t0,3
+00428293  // addi	t0,t0,4

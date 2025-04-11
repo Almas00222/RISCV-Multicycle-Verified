@@ -7,7 +7,6 @@
 
 #include "Vtop.h"
 
-// Define simulation parameters
 #define MAX_SIM_TIME 10000
 vluint64_t sim_time = 0;
 vluint64_t posedge_cnt = 0;
@@ -22,16 +21,13 @@ void dut_reset(Vtop *dut, vluint64_t &sim_time) {
 }
 
 int main(int argc, char** argv, char** env) {
-    // Initialize Verilator
     Verilated::commandArgs(argc, argv);
     
-    // Create an instance of the design under test
     Vtop *dut = new Vtop;
     
-    // Initialize waveform dumping
     Verilated::traceEverOn(true);
     VerilatedVcdC *m_trace = new VerilatedVcdC;
-    dut->trace(m_trace, 99);  // Trace 99 levels of hierarchy
+    dut->trace(m_trace, 99); 
     m_trace->open("waveform.vcd");
     
     // Print simulation information
@@ -40,29 +36,22 @@ int main(int argc, char** argv, char** env) {
     
     // Main simulation loop
     while (sim_time < MAX_SIM_TIME) {
-        // Toggle clock
         dut->clk ^= 1;
         
-        // Apply reset
         dut_reset(dut, sim_time);
         
-        // Evaluate model
         dut->eval();
         
-        // Dump waveforms
         m_trace->dump(sim_time);
         
-        // Count positive edges of clock
         if (dut->clk == 1) {
             posedge_cnt++;
             
         }
         
-        // Increment simulation time
         sim_time++;
     }
     
-    // Clean up and exit
     m_trace->close();
     delete m_trace;
     delete dut;
