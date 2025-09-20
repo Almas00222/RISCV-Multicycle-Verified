@@ -1,0 +1,16 @@
+# Build artifacts
+*.o
+obj_dir/
+waveform.vcd
+
+# Test outputs
+.test
+
+# IDE files
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
