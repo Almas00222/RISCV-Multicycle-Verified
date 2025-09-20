@@ -1,0 +1,14 @@
+# Build artifacts
+obj_dir/
+*.o
+*.vcd
+waveform.vcd
+
+# Test artifacts
+.test
+instructions/*.hex
+results/*-result.txt
+
+# Temporary files
+*.tmp
+*.log
