@@ -20,7 +20,7 @@ module ALU
         case (select)
             3'b000: aluOut = sum;                           // ADD
             3'b001: aluOut = sum;                           // SUB
-            3'b010: aluOut = in_a + in_b;                     // AND
+            3'b010: aluOut = in_a & in_b;                     // AND
             3'b011: aluOut = in_a | in_b;                     // OR
             3'b100: aluOut = in_a ^ in_b;                     // XOR
             3'b101: aluOut = {31'b0, (sum[31] ^ v)};          // SLT
