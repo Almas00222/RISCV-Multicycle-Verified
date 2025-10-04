@@ -296,6 +296,49 @@ Test infrastructure:
 
 ---
 
+## Synthesis results 🔬
+
+The design has been synthesized using **Yosys 0.57+148** to verify hardware viability and measure resource utilization. The CPU core (excluding instruction memory) synthesizes to:
+
+### Resource Utilization
+- **Total logic cells:** 6,447
+- **Sequential elements (flip-flops):** 1,448 (22.5%)
+- **Combinational logic:** 4,999 (77.5%)
+- **Multiplexers:** 2,443
+- **Logic gates:** ~2,500 (AND, OR, XOR, NAND, NOR, NOT, complex gates)
+
+### Module Breakdown
+| Module | Cells | % of Core | Flip-Flops | Description |
+|--------|-------|-----------|------------|-------------|
+| **Register File** | 3,167 | 49.1% | 1,024 | 32 × 32-bit registers with dual-read ports |
+| **ALU** | 1,461 | 22.7% | 0 | Full RV32I arithmetic/logic ops (combinational) |
+| **Top-level** | 688 | 10.7% | 132 | PC, muxes, interconnect |
+| **CSR Module** | 489 | 7.6% | 128 | Machine-mode trap infrastructure |
+| **Control Unit** | 282 | 4.4% | 40 | 13-state FSM + ALU decoder |
+| **DFF Primitives** | 291 | 4.5% | 124 | PC register, IR, pipeline staging |
+| **Decoder** | 69 | 1.1% | 0 | Instruction field extraction (combinational) |
+
+### Key Insights
+- **Compact design:** At 6,447 cells, the core fits comfortably on entry-level FPGAs
+  - Xilinx Artix-7 35T: ~10% utilization (~6,500 / 63,400 LUTs)
+  - Intel Cyclone V: ~20% utilization (~6,500 / 32,070 ALMs)
+- **Register file dominance:** The dual-port register file accounts for 49% of the core due to the multiplexer trees required for two simultaneous reads
+- **Efficient control:** The 13-state FSM requires only 282 cells (4.4%), demonstrating the resource efficiency of the multicycle architecture
+- **Trap support overhead:** CSR module adds 489 cells (7.6%) for full machine-mode exception handling
+- **Competitive sizing:** Comparable to other educational RISC-V cores:
+  - PicoRV32 (minimal): ~4,000 cells
+  - VexRiscv (small config): ~5,500 cells
+  - This design: ~6,400 cells with full trap support
+
+### FPGA Implementation Notes
+- Instruction memory should use Block RAM (BRAM) primitives rather than synthesized logic
+- Estimated maximum frequency: 50-80 MHz on entry-level FPGAs
+- The multicycle architecture trades frequency for design simplicity (no pipeline hazard detection needed)
+
+For detailed synthesis statistics, see `appendices/synthesis_statistics.txt` and `appendices/synthesis_comparison.txt`.
+
+---
+
 ## Contributing 🤝
 
 - Issues and PRs welcome.
@@ -309,4 +352,3 @@ Test infrastructure:
 ---
 
 Happy building, simulating, and waveform-watching! 🖥️📈
-
