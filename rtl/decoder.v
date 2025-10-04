@@ -6,12 +6,14 @@ module decoder
 	output [4:0] rs1,
 	output [4:0] rs2,
 	output [4:0] rd,
+	output [11:0] csr_addr,        // CSR address for CSR instructions
 	output reg [31:0] immext
 );	
 	assign einstr = instruction [24:20];
 	assign rs1 = instruction [19:15];
 	assign rs2 = instruction [24:20]; 
 	assign rd = instruction [11:7];
+	assign csr_addr = instruction[31:20];  // CSR address (imm[11:0])
 	
 	// extend block
 
@@ -30,3 +32,4 @@ module decoder
 	endcase
 	end
 endmodule
+

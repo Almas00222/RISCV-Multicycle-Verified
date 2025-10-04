@@ -1,4 +1,4 @@
-RTL_FILES = ./rtl/top.v ./rtl/dff_en.v ./rtl/dff_clk.v ./rtl/Control_Unit.v ./rtl/ALU.v ./rtl/ALUdec.v ./rtl/decoder.v ./rtl/Reg_file.v ./rtl/instrmemory.v
+RTL_FILES = ./rtl/top.v ./rtl/dff_en.v ./rtl/dff_clk.v ./rtl/Control_Unit.v ./rtl/ALU.v ./rtl/ALUdec.v ./rtl/decoder.v ./rtl/Reg_file.v ./rtl/instrmemory.v ./rtl/CSR.v
 TB_FILES = ./test/tb/testbench.cpp ./test/tb/dpi_functions.c
 
 TEST = .test

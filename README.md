@@ -7,9 +7,12 @@ A compact RISC-V multicycle CPU in Verilog with a Verilator-based test workflow.
 ## What you get 🧰
 
 - Multicycle RISC-V CPU (modular RTL)
+- Precise trap flow with machine-mode CSRs (`mtvec`, `mepc`, `mcause`, `mstatus`)
+- Misaligned load/store detection that routes through the trap handler
 - Verilator simulation with tracing (`--trace`)
 - Official [riscv-tests](https://github.com/riscv-software-src/riscv-tests) integration (git submodule)
 - One-command test selection ➜ one-command build+run ➜ auto-saved results
+- DPI-backed PASS/FAIL/UNDEFINED reporting tied to `a0` and `mcause`
 
 ---
 
@@ -39,6 +42,7 @@ gtkwave waveform.vcd
 Outputs:
 - Results: `results/<your-test>-result.txt`
 - Waveform: `waveform.vcd` (if emitted by the testbench)
+- Console banner: PASS/FAIL/UNDEFINED with total cycle count
 
 If you didn’t select a test, results go to `results/unknown_test-result.txt`.
 
@@ -95,7 +99,8 @@ gcc --version
 │   ├── ALUdec.v
 │   ├── decoder.v
 │   ├── Reg_file.v
-│   └── instrmemory.v
+│   ├── instrmemory.v
+│   └── CSR.v
 └── test/
     ├── converter.py           # Converts riscv-tests *.dump -> *.hex
     └── tb/
@@ -116,7 +121,7 @@ gcc --version
   - Writes the name to `.test`.
   - Converts `.dump` ➜ `.hex` via `test/converter.py`.
 
-- make all
+- make all (or simply `make`)
   - Compiles DPI helpers.
   - Runs Verilator (`--assert --Wall --cc --trace`) with RTL + testbench.
   - Builds the simulator and executes it.
@@ -141,6 +146,34 @@ Then inspect:
 ```bash
 sed -n '1,120p' results/rv32ui-p-addi-result.txt
 ```
+
+Want to sweep a handful of tests in one go?
+
+```bash
+for test in rv32ui-p-addi rv32ui-p-sub rv64mi-p-ma_addr; do
+  echo "$test" > .test
+  python3 ./test/converter.py ./riscv-tests/isa/$test.dump ./instructions/$test.hex
+  make -s
+done
+```
+
+Each run updates `.test`, rebuilds the ROM image, and drops a matching `results/<test>-result.txt` so you can diff outcomes later.
+
+---
+
+## Exception & CSR behaviour 🚨
+
+- **Triggers:**
+  - `ecall` → `mcause = 11`
+  - `ebreak` → `mcause = 3`
+  - Misaligned load → `mcause = 4`
+  - Misaligned store → `mcause = 6`
+- **Trap entry:** State `s11` in `Control_Unit.v` asserts `trap_entry`, snapshots the current PC, and forces the PC mux toward `mtvec`.
+- **Trap return:** Executing `mret` propels state `s12`, raises `mret_sig`, and the PC mux selects `mepc`.
+- **CSR reads/writes:** The datapath treats CSRs as a fourth `ResultSrc` leg, so CSR instructions can observe or modify `mtvec`, `mepc`, `mcause`, and `mstatus` directly.
+- **PASS criteria:** `dpi_functions.c` watches `mcause` and the architectural `a0`. `a0 = 0` after a handled trap prints `PASS`, `a0 = 1` prints `FAIL`, and any other value calls out as `UNDEFINED`.
+
+Scope for digging deeper: open `waveform.vcd` around trap cycles and inspect `PCSrc`, `trap_pc`, `mcause`, and the CSR write enables to convince yourself the hardware path matches the spec.
 
 ---
 
@@ -218,6 +251,10 @@ sed -n '1,120p' results/rv32ui-p-addi-result.txt
 
 - On Windows
   - Use WSL (Ubuntu). Verify file paths don’t include Windows-style separators.
+- PASS never appears
+  - Check `results/<test>-result.txt` for an `UNDEFINED` banner; that means the trap fired but `a0` carried an unexpected value. Inspect your trap handler or CSR writes.
+- Need more context while debugging?
+  - Sprinkle `$display` statements around state `s11`/`s12` in `Control_Unit.v`, or extend `test/tb/dpi_functions.c` to print `mcause`, `mepc`, and `a0` when traps are detected.
 
 ---
 
@@ -249,6 +286,7 @@ sed -n '1,120p' results/rv32ui-p-addi-result.txt
 - `ALU.v` — arithmetic/logic operations
 - `Reg_file.v` — 32x register file
 - `instrmemory.v` — ROM fed by your generated `.hex`
+- `CSR.v` — machine-mode CSRs backing trap entry/return (`mtvec`, `mepc`, `mcause`, `mstatus`)
 - `dff_en.v`, `dff_clk.v` — flip-flop primitives
 
 Test infrastructure:
@@ -271,3 +309,4 @@ Test infrastructure:
 ---
 
 Happy building, simulating, and waveform-watching! 🖥️📈
+

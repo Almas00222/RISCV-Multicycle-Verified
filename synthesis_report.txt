@@ -1,0 +1,2999 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.57+148 (git sha1 259bd6fb3, g++ 13.3.0-6ubuntu2~24.04 -fPIC -O3)
+
+-- Running command `read_verilog top.v Control_Unit.v ALU.v ALUdec.v decoder.v Reg_file.v instrmemory.v CSR.v dff_en.v dff_clk.v; hierarchy -top top; synth -top top; stat' --
+
+1. Executing Verilog-2005 frontend: top.v
+Parsing Verilog input from `top.v' to AST representation.
+Generating RTLIL representation for module `\top'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: Control_Unit.v
+Parsing Verilog input from `Control_Unit.v' to AST representation.
+Generating RTLIL representation for module `\Control_Unit'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: ALU.v
+Parsing Verilog input from `ALU.v' to AST representation.
+Generating RTLIL representation for module `\ALU'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: ALUdec.v
+Parsing Verilog input from `ALUdec.v' to AST representation.
+Generating RTLIL representation for module `\ALUdec'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: decoder.v
+Parsing Verilog input from `decoder.v' to AST representation.
+Generating RTLIL representation for module `\decoder'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: Reg_file.v
+Parsing Verilog input from `Reg_file.v' to AST representation.
+Generating RTLIL representation for module `\Reg_file'.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: instrmemory.v
+Parsing Verilog input from `instrmemory.v' to AST representation.
+Generating RTLIL representation for module `\instrmemory'.
+Successfully finished Verilog frontend.
+
+8. Executing Verilog-2005 frontend: CSR.v
+Parsing Verilog input from `CSR.v' to AST representation.
+Generating RTLIL representation for module `\CSR'.
+Successfully finished Verilog frontend.
+
+9. Executing Verilog-2005 frontend: dff_en.v
+Parsing Verilog input from `dff_en.v' to AST representation.
+Generating RTLIL representation for module `\dff_en'.
+Successfully finished Verilog frontend.
+
+10. Executing Verilog-2005 frontend: dff_clk.v
+Parsing Verilog input from `dff_clk.v' to AST representation.
+Generating RTLIL representation for module `\dff_clk'.
+Successfully finished Verilog frontend.
+
+11. Executing HIERARCHY pass (managing design hierarchy).
+
+11.1. Analyzing design hierarchy..
+Top module:  \top
+Used module:     \dff_clk
+Used module:     \ALU
+Used module:     \Control_Unit
+Used module:         \ALUdec
+Used module:     \CSR
+Used module:     \decoder
+Used module:     \Reg_file
+Used module:     \dff_en
+Used module:     \instrmemory
+
+11.2. Analyzing design hierarchy..
+Top module:  \top
+Used module:     \dff_clk
+Used module:     \ALU
+Used module:     \Control_Unit
+Used module:         \ALUdec
+Used module:     \CSR
+Used module:     \decoder
+Used module:     \Reg_file
+Used module:     \dff_en
+Used module:     \instrmemory
+Removed 0 unused modules.
+
+12. Executing SYNTH pass.
+
+12.1. Executing HIERARCHY pass (managing design hierarchy).
+
+12.1.1. Analyzing design hierarchy..
+Top module:  \top
+Used module:     \dff_clk
+Used module:     \ALU
+Used module:     \Control_Unit
+Used module:         \ALUdec
+Used module:     \CSR
+Used module:     \decoder
+Used module:     \Reg_file
+Used module:     \dff_en
+Used module:     \instrmemory
+
+12.1.2. Analyzing design hierarchy..
+Top module:  \top
+Used module:     \dff_clk
+Used module:     \ALU
+Used module:     \Control_Unit
+Used module:         \ALUdec
+Used module:     \CSR
+Used module:     \decoder
+Used module:     \Reg_file
+Used module:     \dff_en
+Used module:     \instrmemory
+Removed 0 unused modules.
+
+12.2. Executing PROC pass (convert processes to netlists).
+
+12.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+12.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$dff_clk.v:8$201 in module dff_clk.
+Marked 1 switch rules as full_case in process $proc$dff_en.v:9$200 in module dff_en.
+Marked 3 switch rules as full_case in process $proc$CSR.v:56$198 in module CSR.
+Marked 1 switch rules as full_case in process $proc$CSR.v:45$197 in module CSR.
+Marked 1 switch rules as full_case in process $proc$instrmemory.v:37$190 in module instrmemory.
+Marked 1 switch rules as full_case in process $proc$Reg_file.v:23$104 in module Reg_file.
+Removed 1 dead cases from process $proc$decoder.v:20$68 in module decoder.
+Marked 1 switch rules as full_case in process $proc$decoder.v:20$68 in module decoder.
+Removed 1 dead cases from process $proc$ALUdec.v:20$65 in module ALUdec.
+Marked 3 switch rules as full_case in process $proc$ALUdec.v:20$65 in module ALUdec.
+Marked 1 switch rules as full_case in process $proc$ALU.v:21$53 in module ALU.
+Marked 3 switch rules as full_case in process $proc$Control_Unit.v:208$42 in module Control_Unit.
+Marked 12 switch rules as full_case in process $proc$Control_Unit.v:126$22 in module Control_Unit.
+Marked 5 switch rules as full_case in process $proc$Control_Unit.v:97$9 in module Control_Unit.
+Marked 1 switch rules as full_case in process $proc$Control_Unit.v:81$7 in module Control_Unit.
+Marked 1 switch rules as full_case in process $proc$Control_Unit.v:66$6 in module Control_Unit.
+Removed 1 dead cases from process $proc$top.v:128$5 in module top.
+Marked 1 switch rules as full_case in process $proc$top.v:128$5 in module top.
+Marked 1 switch rules as full_case in process $proc$top.v:109$4 in module top.
+Marked 1 switch rules as full_case in process $proc$top.v:88$3 in module top.
+Removed 1 dead cases from process $proc$top.v:77$2 in module top.
+Marked 1 switch rules as full_case in process $proc$top.v:77$2 in module top.
+Removed a total of 4 dead cases.
+
+12.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 3 redundant assignments.
+Promoted 79 assignments to connections.
+
+12.2.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\CSR.$proc$CSR.v:33$199'.
+  Set init value: \mcause = 0
+  Set init value: \mstatus = 6144
+  Set init value: \mtvec = 32'10000000000000000000000000000100
+  Set init value: \mepc = 0
+
+12.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst in `\dff_clk.$proc$dff_clk.v:8$201'.
+Found async reset \rst in `\dff_en.$proc$dff_en.v:9$200'.
+Found async reset \rst in `\CSR.$proc$CSR.v:56$198'.
+Found async reset \rst in `\Control_Unit.$proc$Control_Unit.v:81$7'.
+
+12.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~39 debug messages>
+
+12.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\dff_clk.$proc$dff_clk.v:8$201'.
+     1/1: $0\q[31:0]
+Creating decoders for process `\dff_en.$proc$dff_en.v:9$200'.
+     1/1: $0\q[31:0]
+Creating decoders for process `\CSR.$proc$CSR.v:33$199'.
+Creating decoders for process `\CSR.$proc$CSR.v:56$198'.
+     1/4: $0\mepc[31:0]
+     2/4: $0\mtvec[31:0]
+     3/4: $0\mstatus[31:0]
+     4/4: $0\mcause[31:0]
+Creating decoders for process `\CSR.$proc$CSR.v:45$197'.
+     1/1: $1\rdata[31:0]
+Creating decoders for process `\instrmemory.$proc$instrmemory.v:37$190'.
+     1/3: $1$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$196
+     2/3: $1$memwr$\RAM$instrmemory.v:38$188_DATA[31:0]$195
+     3/3: $1$memwr$\RAM$instrmemory.v:38$188_ADDR[1:0]$194
+Creating decoders for process `\Reg_file.$proc$Reg_file.v:17$155'.
+Creating decoders for process `\Reg_file.$proc$Reg_file.v:32$152'.
+Creating decoders for process `\Reg_file.$proc$Reg_file.v:23$104'.
+     1/3: $1$memwr$\rf$Reg_file.v:25$102_EN[31:0]$113
+     2/3: $1$memwr$\rf$Reg_file.v:25$102_DATA[31:0]$112
+     3/3: $1$memwr$\rf$Reg_file.v:25$102_ADDR[4:0]$111
+Creating decoders for process `\decoder.$proc$decoder.v:20$68'.
+     1/1: $1\immext[31:0]
+Creating decoders for process `\ALUdec.$proc$ALUdec.v:20$65'.
+     1/3: $3\aluselect[3:0]
+     2/3: $2\aluselect[3:0]
+     3/3: $1\aluselect[3:0]
+Creating decoders for process `\ALU.$proc$ALU.v:21$53'.
+     1/1: $1\aluOut[31:0]
+Creating decoders for process `\Control_Unit.$proc$Control_Unit.v:347$50'.
+Creating decoders for process `\Control_Unit.$proc$Control_Unit.v:340$49'.
+Creating decoders for process `\Control_Unit.$proc$Control_Unit.v:208$42'.
+     1/25: $2\done_ebreak[0:0]
+     2/25: $2\done_ecall[0:0]
+     3/25: $2\MemWrite[0:0]
+     4/25: $2\done_SW[0:0]
+     5/25: $1\PCUpdate[0:0]
+     6/25: $1\ResultSrc[1:0]
+     7/25: $1\AluOp[1:0]
+     8/25: $1\ALUSrcB[1:0]
+     9/25: $1\ALUSrcA[1:0]
+    10/25: $1\IRWrite[0:0]
+    11/25: $1\AdrSrc[0:0]
+    12/25: $1\branch[0:0]
+    13/25: $1\trap_pc[31:0]
+    14/25: $1\trap_entry[0:0]
+    15/25: $1\PCSrc[1:0]
+    16/25: $1\mret_sig[0:0]
+    17/25: $1\regWrite[0:0]
+    18/25: $1\MemWrite[0:0]
+    19/25: $1\PCWrite[0:0]
+    20/25: $1\done_beq[0:0]
+    21/25: $1\done_ebreak[0:0]
+    22/25: $1\done_ecall[0:0]
+    23/25: $1\done_ALUWB[0:0]
+    24/25: $1\done_SW[0:0]
+    25/25: $1\done_LW[0:0]
+Creating decoders for process `\Control_Unit.$proc$Control_Unit.v:126$22'.
+     1/12: $12\next_state[3:0]
+     2/12: $11\next_state[3:0]
+     3/12: $10\next_state[3:0]
+     4/12: $9\next_state[3:0]
+     5/12: $8\next_state[3:0]
+     6/12: $7\next_state[3:0]
+     7/12: $6\next_state[3:0]
+     8/12: $5\next_state[3:0]
+     9/12: $4\next_state[3:0]
+    10/12: $3\next_state[3:0]
+    11/12: $2\next_state[3:0]
+    12/12: $1\next_state[3:0]
+Creating decoders for process `\Control_Unit.$proc$Control_Unit.v:97$9'.
+     1/5: $5\mcause_next[3:0]
+     2/5: $4\mcause_next[3:0]
+     3/5: $3\mcause_next[3:0]
+     4/5: $2\mcause_next[3:0]
+     5/5: $1\mcause_next[3:0]
+Creating decoders for process `\Control_Unit.$proc$Control_Unit.v:81$7'.
+     1/3: $0\mcause[3:0]
+     2/3: $0\current_state[3:0]
+     3/3: $0\saved_pc[31:0]
+Creating decoders for process `\Control_Unit.$proc$Control_Unit.v:66$6'.
+     1/1: $1\immSrc[1:0]
+Creating decoders for process `\top.$proc$top.v:128$5'.
+     1/1: $1\ResultOut[31:0]
+Creating decoders for process `\top.$proc$top.v:109$4'.
+     1/1: $1\SrcBout[31:0]
+Creating decoders for process `\top.$proc$top.v:88$3'.
+     1/1: $1\SrcAout[31:0]
+Creating decoders for process `\top.$proc$top.v:77$2'.
+     1/1: $1\pc_next[31:0]
+
+12.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\CSR.\rdata' from process `\CSR.$proc$CSR.v:45$197'.
+No latch inferred for signal `\Reg_file.\i' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$70_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$71_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$72_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$73_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$74_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$75_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$76_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$77_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$78_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$79_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$80_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$81_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$82_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$83_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$84_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$85_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$86_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$87_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$88_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$89_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$90_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$91_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$92_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$93_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$94_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$95_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$96_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$97_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$98_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$99_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$100_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$memwr$\rf$Reg_file.v:19$101_EN' from process `\Reg_file.$proc$Reg_file.v:17$155'.
+No latch inferred for signal `\Reg_file.$mem2bits$\rf$Reg_file.v:32$103' from process `\Reg_file.$proc$Reg_file.v:32$152'.
+No latch inferred for signal `\decoder.\immext' from process `\decoder.$proc$decoder.v:20$68'.
+No latch inferred for signal `\ALUdec.\aluselect' from process `\ALUdec.$proc$ALUdec.v:20$65'.
+No latch inferred for signal `\ALU.\aluOut' from process `\ALU.$proc$ALU.v:21$53'.
+No latch inferred for signal `\Control_Unit.\PCWrite' from process `\Control_Unit.$proc$Control_Unit.v:347$50'.
+No latch inferred for signal `\Control_Unit.\state_out' from process `\Control_Unit.$proc$Control_Unit.v:340$49'.
+No latch inferred for signal `\Control_Unit.\done_LW' from process `\Control_Unit.$proc$Control_Unit.v:208$42'.
+No latch inferred for signal `\Control_Unit.\done_SW' from process `\Control_Unit.$proc$Control_Unit.v:208$42'.
+No latch inferred for signal `\Control_Unit.\done_ALUWB' from process `\Control_Unit.$proc$Control_Unit.v:208$42'.
+No latch inferred for signal `\Control_Unit.\done_ecall' from process `\Control_Unit.$proc$Control_Unit.v:208$42'.
+No latch inferred for signal `\Control_Unit.\done_ebreak' from process `\Control_Unit.$proc$Control_Unit.v:208$42'.
+No latch inferred for signal `\Control_Unit.\done_beq' from process `\Control_Unit.$proc$Control_Unit.v:208$42'.
+No latch inferred for signal `\Control_Unit.\IRWrite' from process `\Control_Unit.$proc$Control_Unit.v:208$42'.
+No latch inferred for signal `\Control_Unit.\PCWrite' from process `\Control_Unit.$proc$Control_Unit.v:208$42'.
+No latch inferred for signal `\Control_Unit.\ALUSrcB' from process `\Control_Unit.$proc$Control_Unit.v:208$42'.
+No latch inferred for signal `\Control_Unit.\MemWrite' from process `\Control_Unit.$proc$Control_Unit.v:208$42'.
+No latch inferred for signal `\Control_Unit.\AdrSrc' from process `\Control_Unit.$proc$Control_Unit.v:208$42'.
+No latch inferred for signal `\Control_Unit.\ALUSrcA' from process `\Control_Unit.$proc$Control_Unit.v:208$42'.
+No latch inferred for signal `\Control_Unit.\ResultSrc' from process `\Control_Unit.$proc$Control_Unit.v:208$42'.
+No latch inferred for signal `\Control_Unit.\regWrite' from process `\Control_Unit.$proc$Control_Unit.v:208$42'.
+No latch inferred for signal `\Control_Unit.\PCUpdate' from process `\Control_Unit.$proc$Control_Unit.v:208$42'.
+No latch inferred for signal `\Control_Unit.\mret_sig' from process `\Control_Unit.$proc$Control_Unit.v:208$42'.
+No latch inferred for signal `\Control_Unit.\PCSrc' from process `\Control_Unit.$proc$Control_Unit.v:208$42'.
+No latch inferred for signal `\Control_Unit.\trap_entry' from process `\Control_Unit.$proc$Control_Unit.v:208$42'.
+No latch inferred for signal `\Control_Unit.\trap_pc' from process `\Control_Unit.$proc$Control_Unit.v:208$42'.
+No latch inferred for signal `\Control_Unit.\csr_we' from process `\Control_Unit.$proc$Control_Unit.v:208$42'.
+No latch inferred for signal `\Control_Unit.\AluOp' from process `\Control_Unit.$proc$Control_Unit.v:208$42'.
+No latch inferred for signal `\Control_Unit.\branch' from process `\Control_Unit.$proc$Control_Unit.v:208$42'.
+No latch inferred for signal `\Control_Unit.\next_state' from process `\Control_Unit.$proc$Control_Unit.v:126$22'.
+No latch inferred for signal `\Control_Unit.\mcause_next' from process `\Control_Unit.$proc$Control_Unit.v:97$9'.
+No latch inferred for signal `\Control_Unit.\immSrc' from process `\Control_Unit.$proc$Control_Unit.v:66$6'.
+No latch inferred for signal `\top.\ResultOut' from process `\top.$proc$top.v:128$5'.
+No latch inferred for signal `\top.\SrcBout' from process `\top.$proc$top.v:109$4'.
+No latch inferred for signal `\top.\SrcAout' from process `\top.$proc$top.v:88$3'.
+No latch inferred for signal `\top.\pc_next' from process `\top.$proc$top.v:77$2'.
+
+12.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\dff_clk.\q' using process `\dff_clk.$proc$dff_clk.v:8$201'.
+  created $adff cell `$procdff$960' with positive edge clock and positive level reset.
+Creating register for signal `\dff_en.\q' using process `\dff_en.$proc$dff_en.v:9$200'.
+  created $adff cell `$procdff$963' with positive edge clock and positive level reset.
+Creating register for signal `\CSR.\mcause' using process `\CSR.$proc$CSR.v:56$198'.
+  created $adff cell `$procdff$966' with positive edge clock and positive level reset.
+Creating register for signal `\CSR.\mstatus' using process `\CSR.$proc$CSR.v:56$198'.
+  created $adff cell `$procdff$969' with positive edge clock and positive level reset.
+Creating register for signal `\CSR.\mtvec' using process `\CSR.$proc$CSR.v:56$198'.
+  created $adff cell `$procdff$972' with positive edge clock and positive level reset.
+Creating register for signal `\CSR.\mepc' using process `\CSR.$proc$CSR.v:56$198'.
+  created $adff cell `$procdff$975' with positive edge clock and positive level reset.
+Creating register for signal `\instrmemory.$memwr$\RAM$instrmemory.v:38$188_ADDR' using process `\instrmemory.$proc$instrmemory.v:37$190'.
+  created $dff cell `$procdff$976' with positive edge clock.
+Creating register for signal `\instrmemory.$memwr$\RAM$instrmemory.v:38$188_DATA' using process `\instrmemory.$proc$instrmemory.v:37$190'.
+  created $dff cell `$procdff$977' with positive edge clock.
+Creating register for signal `\instrmemory.$memwr$\RAM$instrmemory.v:38$188_EN' using process `\instrmemory.$proc$instrmemory.v:37$190'.
+  created $dff cell `$procdff$978' with positive edge clock.
+Creating register for signal `\Reg_file.$memwr$\rf$Reg_file.v:25$102_ADDR' using process `\Reg_file.$proc$Reg_file.v:23$104'.
+  created $dff cell `$procdff$979' with positive edge clock.
+Creating register for signal `\Reg_file.$memwr$\rf$Reg_file.v:25$102_DATA' using process `\Reg_file.$proc$Reg_file.v:23$104'.
+  created $dff cell `$procdff$980' with positive edge clock.
+Creating register for signal `\Reg_file.$memwr$\rf$Reg_file.v:25$102_EN' using process `\Reg_file.$proc$Reg_file.v:23$104'.
+  created $dff cell `$procdff$981' with positive edge clock.
+Creating register for signal `\Control_Unit.\mcause' using process `\Control_Unit.$proc$Control_Unit.v:81$7'.
+  created $adff cell `$procdff$984' with positive edge clock and positive level reset.
+Creating register for signal `\Control_Unit.\current_state' using process `\Control_Unit.$proc$Control_Unit.v:81$7'.
+  created $adff cell `$procdff$987' with positive edge clock and positive level reset.
+Creating register for signal `\Control_Unit.\saved_pc' using process `\Control_Unit.$proc$Control_Unit.v:81$7'.
+  created $adff cell `$procdff$990' with positive edge clock and positive level reset.
+
+12.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+12.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `dff_clk.$proc$dff_clk.v:8$201'.
+Found and cleaned up 1 empty switch in `\dff_en.$proc$dff_en.v:9$200'.
+Removing empty process `dff_en.$proc$dff_en.v:9$200'.
+Removing empty process `CSR.$proc$CSR.v:33$199'.
+Found and cleaned up 4 empty switches in `\CSR.$proc$CSR.v:56$198'.
+Removing empty process `CSR.$proc$CSR.v:56$198'.
+Found and cleaned up 1 empty switch in `\CSR.$proc$CSR.v:45$197'.
+Removing empty process `CSR.$proc$CSR.v:45$197'.
+Found and cleaned up 1 empty switch in `\instrmemory.$proc$instrmemory.v:37$190'.
+Removing empty process `instrmemory.$proc$instrmemory.v:37$190'.
+Removing empty process `Reg_file.$proc$Reg_file.v:17$155'.
+Removing empty process `Reg_file.$proc$Reg_file.v:32$152'.
+Found and cleaned up 1 empty switch in `\Reg_file.$proc$Reg_file.v:23$104'.
+Removing empty process `Reg_file.$proc$Reg_file.v:23$104'.
+Found and cleaned up 1 empty switch in `\decoder.$proc$decoder.v:20$68'.
+Removing empty process `decoder.$proc$decoder.v:20$68'.
+Found and cleaned up 3 empty switches in `\ALUdec.$proc$ALUdec.v:20$65'.
+Removing empty process `ALUdec.$proc$ALUdec.v:20$65'.
+Found and cleaned up 1 empty switch in `\ALU.$proc$ALU.v:21$53'.
+Removing empty process `ALU.$proc$ALU.v:21$53'.
+Removing empty process `Control_Unit.$proc$Control_Unit.v:347$50'.
+Removing empty process `Control_Unit.$proc$Control_Unit.v:340$49'.
+Found and cleaned up 3 empty switches in `\Control_Unit.$proc$Control_Unit.v:208$42'.
+Removing empty process `Control_Unit.$proc$Control_Unit.v:208$42'.
+Found and cleaned up 12 empty switches in `\Control_Unit.$proc$Control_Unit.v:126$22'.
+Removing empty process `Control_Unit.$proc$Control_Unit.v:126$22'.
+Found and cleaned up 5 empty switches in `\Control_Unit.$proc$Control_Unit.v:97$9'.
+Removing empty process `Control_Unit.$proc$Control_Unit.v:97$9'.
+Found and cleaned up 1 empty switch in `\Control_Unit.$proc$Control_Unit.v:81$7'.
+Removing empty process `Control_Unit.$proc$Control_Unit.v:81$7'.
+Found and cleaned up 1 empty switch in `\Control_Unit.$proc$Control_Unit.v:66$6'.
+Removing empty process `Control_Unit.$proc$Control_Unit.v:66$6'.
+Found and cleaned up 1 empty switch in `\top.$proc$top.v:128$5'.
+Removing empty process `top.$proc$top.v:128$5'.
+Found and cleaned up 1 empty switch in `\top.$proc$top.v:109$4'.
+Removing empty process `top.$proc$top.v:109$4'.
+Found and cleaned up 1 empty switch in `\top.$proc$top.v:88$3'.
+Removing empty process `top.$proc$top.v:88$3'.
+Found and cleaned up 1 empty switch in `\top.$proc$top.v:77$2'.
+Removing empty process `top.$proc$top.v:77$2'.
+Cleaned up 39 empty switches.
+
+12.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_clk.
+<suppressed ~1 debug messages>
+Optimizing module dff_en.
+<suppressed ~1 debug messages>
+Optimizing module CSR.
+<suppressed ~4 debug messages>
+Optimizing module instrmemory.
+Optimizing module Reg_file.
+<suppressed ~4 debug messages>
+Optimizing module decoder.
+<suppressed ~1 debug messages>
+Optimizing module ALUdec.
+<suppressed ~5 debug messages>
+Optimizing module ALU.
+<suppressed ~2 debug messages>
+Optimizing module Control_Unit.
+<suppressed ~29 debug messages>
+Optimizing module top.
+<suppressed ~4 debug messages>
+
+12.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_clk.
+Optimizing module dff_en.
+Optimizing module CSR.
+Optimizing module instrmemory.
+Optimizing module Reg_file.
+Optimizing module decoder.
+Optimizing module ALUdec.
+Optimizing module ALU.
+Optimizing module Control_Unit.
+Optimizing module top.
+
+12.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_clk..
+Finding unused cells or wires in module \dff_en..
+Finding unused cells or wires in module \CSR..
+Finding unused cells or wires in module \instrmemory..
+Finding unused cells or wires in module \Reg_file..
+Finding unused cells or wires in module \decoder..
+Finding unused cells or wires in module \ALUdec..
+Finding unused cells or wires in module \ALU..
+Finding unused cells or wires in module \Control_Unit..
+Finding unused cells or wires in module \top..
+Removed 6 unused cells and 298 unused wires.
+<suppressed ~17 debug messages>
+
+12.5. Executing CHECK pass (checking for obvious problems).
+Checking module ALU...
+Checking module ALUdec...
+Checking module CSR...
+Checking module Control_Unit...
+Warning: multiple conflicting drivers for Control_Unit.\PCWrite:
+    port Y[0] of cell $or$Control_Unit.v:348$52 ($or)
+    port Y[0] of cell $procmux$530 ($pmux)
+Checking module Reg_file...
+Checking module decoder...
+Checking module dff_clk...
+Checking module dff_en...
+Checking module instrmemory...
+Checking module top...
+Found and reported 1 problems.
+
+12.6. Executing OPT pass (performing simple optimizations).
+
+12.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU.
+Optimizing module ALUdec.
+Optimizing module CSR.
+Optimizing module Control_Unit.
+Optimizing module Reg_file.
+Optimizing module decoder.
+Optimizing module dff_clk.
+Optimizing module dff_en.
+Optimizing module instrmemory.
+Optimizing module top.
+
+12.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU'.
+Finding identical cells in module `\ALUdec'.
+<suppressed ~15 debug messages>
+Finding identical cells in module `\CSR'.
+<suppressed ~12 debug messages>
+Finding identical cells in module `\Control_Unit'.
+<suppressed ~792 debug messages>
+Finding identical cells in module `\Reg_file'.
+Finding identical cells in module `\decoder'.
+Finding identical cells in module `\dff_clk'.
+Finding identical cells in module `\dff_en'.
+Finding identical cells in module `\instrmemory'.
+Finding identical cells in module `\top'.
+Removed a total of 273 cells.
+
+12.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ALUdec..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/3 on $pmux $procmux$305.
+    dead port 2/3 on $pmux $procmux$305.
+    dead port 2/2 on $mux $procmux$289.
+    dead port 1/3 on $pmux $procmux$292.
+    dead port 2/3 on $pmux $procmux$292.
+Running muxtree optimizer on module \CSR..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Control_Unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$329.
+    dead port 2/2 on $mux $procmux$336.
+    dead port 2/2 on $mux $procmux$349.
+    dead port 2/2 on $mux $procmux$362.
+    dead port 2/2 on $mux $procmux$645.
+    dead port 2/2 on $mux $procmux$660.
+    dead port 1/2 on $mux $procmux$677.
+    dead port 2/2 on $mux $procmux$679.
+    dead port 2/2 on $mux $procmux$695.
+    dead port 1/2 on $mux $procmux$713.
+    dead port 1/2 on $mux $procmux$716.
+    dead port 1/2 on $mux $procmux$719.
+    dead port 1/2 on $mux $procmux$722.
+    dead port 1/2 on $mux $procmux$725.
+    dead port 1/2 on $mux $procmux$728.
+    dead port 2/2 on $mux $procmux$730.
+    dead port 1/2 on $mux $procmux$748.
+    dead port 1/2 on $mux $procmux$751.
+    dead port 1/2 on $mux $procmux$754.
+    dead port 1/2 on $mux $procmux$757.
+    dead port 1/2 on $mux $procmux$760.
+    dead port 2/2 on $mux $procmux$762.
+    dead port 1/2 on $mux $procmux$780.
+    dead port 1/2 on $mux $procmux$783.
+    dead port 1/2 on $mux $procmux$786.
+    dead port 1/2 on $mux $procmux$789.
+    dead port 2/2 on $mux $procmux$791.
+    dead port 1/2 on $mux $procmux$809.
+    dead port 1/2 on $mux $procmux$812.
+    dead port 1/2 on $mux $procmux$815.
+    dead port 2/2 on $mux $procmux$817.
+    dead port 1/2 on $mux $procmux$835.
+    dead port 1/2 on $mux $procmux$838.
+    dead port 2/2 on $mux $procmux$840.
+    dead port 1/2 on $mux $procmux$858.
+    dead port 2/2 on $mux $procmux$860.
+    dead port 2/2 on $mux $procmux$877.
+    dead port 2/2 on $mux $procmux$896.
+    dead port 2/2 on $mux $procmux$903.
+    dead port 1/2 on $mux $procmux$912.
+    dead port 2/2 on $mux $procmux$914.
+    dead port 2/2 on $mux $procmux$922.
+Running muxtree optimizer on module \Reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \decoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \dff_clk..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \dff_en..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \instrmemory..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 47 multiplexer ports.
+<suppressed ~173 debug messages>
+
+12.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU.
+  Optimizing cells in module \ALUdec.
+  Optimizing cells in module \CSR.
+  Optimizing cells in module \Control_Unit.
+    New ctrl vector for $pmux cell $procmux$530: $auto$opt_reduce.cc:137:opt_pmux$994
+    New ctrl vector for $pmux cell $procmux$605: { $procmux$350_CMP $auto$opt_reduce.cc:137:opt_pmux$996 }
+    New ctrl vector for $pmux cell $procmux$410: { $auto$opt_reduce.cc:137:opt_pmux$1002 $auto$opt_reduce.cc:137:opt_pmux$1000 $auto$opt_reduce.cc:137:opt_pmux$998 }
+    New ctrl vector for $pmux cell $procmux$470: { $procmux$368_CMP $auto$opt_reduce.cc:137:opt_pmux$1004 }
+    New ctrl vector for $pmux cell $procmux$545: { $procmux$368_CMP $auto$opt_reduce.cc:137:opt_pmux$1006 }
+    New ctrl vector for $pmux cell $procmux$620: { $procmux$374_CMP $auto$opt_reduce.cc:137:opt_pmux$1008 }
+    New ctrl vector for $pmux cell $procmux$395: { $auto$opt_reduce.cc:137:opt_pmux$1012 $procmux$368_CMP $auto$opt_reduce.cc:137:opt_pmux$1010 }
+    New ctrl vector for $pmux cell $procmux$365: { $auto$opt_reduce.cc:137:opt_pmux$1016 $auto$opt_reduce.cc:137:opt_pmux$1014 }
+    New ctrl vector for $pmux cell $procmux$500: { $auto$opt_reduce.cc:137:opt_pmux$1020 $auto$opt_reduce.cc:137:opt_pmux$1018 }
+    New ctrl vector for $pmux cell $procmux$883: { $procmux$378_CMP $eq$Control_Unit.v:90$8_Y $procmux$376_CMP $procmux$375_CMP $procmux$350_CMP $auto$opt_reduce.cc:137:opt_pmux$1022 }
+    New ctrl vector for $pmux cell $procmux$575: { $procmux$330_CMP $auto$opt_reduce.cc:137:opt_pmux$1024 }
+    New ctrl vector for $pmux cell $procmux$380: { $procmux$378_CMP $procmux$374_CMP $auto$opt_reduce.cc:137:opt_pmux$1026 }
+    New ctrl vector for $pmux cell $procmux$560: { $procmux$330_CMP $auto$opt_reduce.cc:137:opt_pmux$1028 }
+    New ctrl vector for $pmux cell $procmux$440: { $procmux$378_CMP $auto$opt_reduce.cc:137:opt_pmux$1030 }
+    New ctrl vector for $pmux cell $procmux$455: { $auto$opt_reduce.cc:137:opt_pmux$1034 $auto$opt_reduce.cc:137:opt_pmux$1032 }
+    New ctrl vector for $pmux cell $procmux$425: { $auto$opt_reduce.cc:137:opt_pmux$1040 $auto$opt_reduce.cc:137:opt_pmux$1038 $auto$opt_reduce.cc:137:opt_pmux$1036 }
+    New ctrl vector for $pmux cell $procmux$515: { $procmux$350_CMP $auto$opt_reduce.cc:137:opt_pmux$1042 }
+    New ctrl vector for $pmux cell $procmux$590: { $procmux$371_CMP $auto$opt_reduce.cc:137:opt_pmux$1044 }
+  Optimizing cells in module \Control_Unit.
+  Optimizing cells in module \Reg_file.
+    Consolidated identical input bits for $mux cell $procmux$266:
+      Old ports: A=0, B=32'11111111111111111111111111111111, Y=$0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107
+      New ports: A=1'0, B=1'1, Y=$0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0]
+      New connections: $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [31:1] = { $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] $0$memwr$\rf$Reg_file.v:25$102_EN[31:0]$107 [0] }
+  Optimizing cells in module \Reg_file.
+  Optimizing cells in module \decoder.
+  Optimizing cells in module \dff_clk.
+  Optimizing cells in module \dff_en.
+  Optimizing cells in module \instrmemory.
+    Consolidated identical input bits for $mux cell $procmux$257:
+      Old ports: A=0, B=32'11111111111111111111111111111111, Y=$0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193
+      New ports: A=1'0, B=1'1, Y=$0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0]
+      New connections: $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [31:1] = { $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] $0$memwr$\RAM$instrmemory.v:38$188_EN[31:0]$193 [0] }
+  Optimizing cells in module \instrmemory.
+  Optimizing cells in module \top.
+    New ctrl vector for $pmux cell $procmux$953: { $auto$opt_reduce.cc:137:opt_pmux$1046 $procmux$955_CMP $procmux$954_CMP }
+  Optimizing cells in module \top.
+Performed a total of 21 changes.
+
+12.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU'.
+Finding identical cells in module `\ALUdec'.
+Finding identical cells in module `\CSR'.
+Finding identical cells in module `\Control_Unit'.
+<suppressed ~18 debug messages>
+Finding identical cells in module `\Reg_file'.
+Finding identical cells in module `\decoder'.
+Finding identical cells in module `\dff_clk'.
+Finding identical cells in module `\dff_en'.
+Finding identical cells in module `\instrmemory'.
+Finding identical cells in module `\top'.
+Removed a total of 6 cells.
+
+12.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+12.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU..
+Finding unused cells or wires in module \ALUdec..
+Finding unused cells or wires in module \CSR..
+Finding unused cells or wires in module \Control_Unit..
+Finding unused cells or wires in module \Reg_file..
+Finding unused cells or wires in module \decoder..
+Finding unused cells or wires in module \dff_clk..
+Finding unused cells or wires in module \dff_en..
+Finding unused cells or wires in module \instrmemory..
+Finding unused cells or wires in module \top..
+Removed 0 unused cells and 322 unused wires.
+<suppressed ~3 debug messages>
+
+12.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU.
+Optimizing module ALUdec.
+Optimizing module CSR.
+Optimizing module Control_Unit.
+Optimizing module Reg_file.
+Optimizing module decoder.
+Optimizing module dff_clk.
+Optimizing module dff_en.
+Optimizing module instrmemory.
+Optimizing module top.
+
+12.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+12.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ALUdec..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \CSR..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Control_Unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \decoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \dff_clk..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \dff_en..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \instrmemory..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~123 debug messages>
+
+12.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU.
+  Optimizing cells in module \ALUdec.
+  Optimizing cells in module \CSR.
+  Optimizing cells in module \Control_Unit.
+  Optimizing cells in module \Reg_file.
+  Optimizing cells in module \decoder.
+  Optimizing cells in module \dff_clk.
+  Optimizing cells in module \dff_en.
+  Optimizing cells in module \instrmemory.
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+12.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU'.
+Finding identical cells in module `\ALUdec'.
+Finding identical cells in module `\CSR'.
+Finding identical cells in module `\Control_Unit'.
+Finding identical cells in module `\Reg_file'.
+Finding identical cells in module `\decoder'.
+Finding identical cells in module `\dff_clk'.
+Finding identical cells in module `\dff_en'.
+Finding identical cells in module `\instrmemory'.
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+12.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+12.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU..
+Finding unused cells or wires in module \ALUdec..
+Finding unused cells or wires in module \CSR..
+Finding unused cells or wires in module \Control_Unit..
+Finding unused cells or wires in module \Reg_file..
+Finding unused cells or wires in module \decoder..
+Finding unused cells or wires in module \dff_clk..
+Finding unused cells or wires in module \dff_en..
+Finding unused cells or wires in module \instrmemory..
+Finding unused cells or wires in module \top..
+
+12.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU.
+Optimizing module ALUdec.
+Optimizing module CSR.
+Optimizing module Control_Unit.
+Optimizing module Reg_file.
+Optimizing module decoder.
+Optimizing module dff_clk.
+Optimizing module dff_en.
+Optimizing module instrmemory.
+Optimizing module top.
+
+12.6.16. Finished fast OPT passes. (There is nothing left to do.)
+
+12.7. Executing FSM pass (extract and optimize FSM).
+
+12.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+Not marking Control_Unit.current_state as FSM state register:
+    Register is connected to module port.
+    Users of register don't seem to benefit from recoding.
+    Circuit seems to be self-resetting.
+Not marking Control_Unit.mcause as FSM state register:
+    Register is connected to module port.
+    Users of register don't seem to benefit from recoding.
+
+12.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+12.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+12.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU..
+Finding unused cells or wires in module \ALUdec..
+Finding unused cells or wires in module \CSR..
+Finding unused cells or wires in module \Control_Unit..
+Finding unused cells or wires in module \Reg_file..
+Finding unused cells or wires in module \decoder..
+Finding unused cells or wires in module \dff_clk..
+Finding unused cells or wires in module \dff_en..
+Finding unused cells or wires in module \instrmemory..
+Finding unused cells or wires in module \top..
+
+12.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+12.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+12.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+12.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+12.8. Executing OPT pass (performing simple optimizations).
+
+12.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU.
+Optimizing module ALUdec.
+Optimizing module CSR.
+Optimizing module Control_Unit.
+Optimizing module Reg_file.
+Optimizing module decoder.
+Optimizing module dff_clk.
+Optimizing module dff_en.
+Optimizing module instrmemory.
+Optimizing module top.
+
+12.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU'.
+Finding identical cells in module `\ALUdec'.
+Finding identical cells in module `\CSR'.
+Finding identical cells in module `\Control_Unit'.
+Finding identical cells in module `\Reg_file'.
+Finding identical cells in module `\decoder'.
+Finding identical cells in module `\dff_clk'.
+Finding identical cells in module `\dff_en'.
+Finding identical cells in module `\instrmemory'.
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+12.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ALUdec..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \CSR..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Control_Unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \decoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \dff_clk..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \dff_en..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \instrmemory..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~123 debug messages>
+
+12.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU.
+  Optimizing cells in module \ALUdec.
+  Optimizing cells in module \CSR.
+  Optimizing cells in module \Control_Unit.
+  Optimizing cells in module \Reg_file.
+  Optimizing cells in module \decoder.
+  Optimizing cells in module \dff_clk.
+  Optimizing cells in module \dff_en.
+  Optimizing cells in module \instrmemory.
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+12.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU'.
+Finding identical cells in module `\ALUdec'.
+Finding identical cells in module `\CSR'.
+Finding identical cells in module `\Control_Unit'.
+Finding identical cells in module `\Reg_file'.
+Finding identical cells in module `\decoder'.
+Finding identical cells in module `\dff_clk'.
+Finding identical cells in module `\dff_en'.
+Finding identical cells in module `\instrmemory'.
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+12.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$975 ($adff) from module CSR (D = $0\mepc[31:0], Q = \mepc).
+Adding EN signal on $procdff$972 ($adff) from module CSR (D = \wdata, Q = \mtvec).
+Adding EN signal on $procdff$969 ($adff) from module CSR (D = \wdata, Q = \mstatus).
+Adding EN signal on $procdff$966 ($adff) from module CSR (D = $0\mcause[31:0], Q = \mcause).
+Adding EN signal on $procdff$990 ($adff) from module Control_Unit (D = \current_pc, Q = \saved_pc).
+Adding EN signal on $procdff$984 ($adff) from module Control_Unit (D = \mcause_next, Q = \mcause).
+Adding EN signal on $procdff$963 ($adff) from module dff_en (D = \d, Q = \q).
+
+12.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU..
+Finding unused cells or wires in module \ALUdec..
+Finding unused cells or wires in module \CSR..
+Finding unused cells or wires in module \Control_Unit..
+Finding unused cells or wires in module \Reg_file..
+Finding unused cells or wires in module \decoder..
+Finding unused cells or wires in module \dff_clk..
+Finding unused cells or wires in module \dff_en..
+Finding unused cells or wires in module \instrmemory..
+Finding unused cells or wires in module \top..
+Removed 10 unused cells and 10 unused wires.
+<suppressed ~13 debug messages>
+
+12.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU.
+Optimizing module ALUdec.
+Optimizing module CSR.
+<suppressed ~4 debug messages>
+Optimizing module Control_Unit.
+<suppressed ~1 debug messages>
+Optimizing module Reg_file.
+Optimizing module decoder.
+Optimizing module dff_clk.
+Optimizing module dff_en.
+Optimizing module instrmemory.
+Optimizing module top.
+
+12.8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+12.8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ALUdec..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \CSR..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Control_Unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \decoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \dff_clk..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \dff_en..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \instrmemory..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~109 debug messages>
+
+12.8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU.
+  Optimizing cells in module \ALUdec.
+  Optimizing cells in module \CSR.
+  Optimizing cells in module \Control_Unit.
+  Optimizing cells in module \Reg_file.
+  Optimizing cells in module \decoder.
+  Optimizing cells in module \dff_clk.
+  Optimizing cells in module \dff_en.
+  Optimizing cells in module \instrmemory.
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+12.8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU'.
+Finding identical cells in module `\ALUdec'.
+Finding identical cells in module `\CSR'.
+<suppressed ~12 debug messages>
+Finding identical cells in module `\Control_Unit'.
+Finding identical cells in module `\Reg_file'.
+Finding identical cells in module `\decoder'.
+Finding identical cells in module `\dff_clk'.
+Finding identical cells in module `\dff_en'.
+Finding identical cells in module `\instrmemory'.
+Finding identical cells in module `\top'.
+Removed a total of 4 cells.
+
+12.8.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+12.8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU..
+Finding unused cells or wires in module \ALUdec..
+Finding unused cells or wires in module \CSR..
+Finding unused cells or wires in module \Control_Unit..
+Finding unused cells or wires in module \Reg_file..
+Finding unused cells or wires in module \decoder..
+Finding unused cells or wires in module \dff_clk..
+Finding unused cells or wires in module \dff_en..
+Finding unused cells or wires in module \instrmemory..
+Finding unused cells or wires in module \top..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+12.8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU.
+Optimizing module ALUdec.
+Optimizing module CSR.
+Optimizing module Control_Unit.
+Optimizing module Reg_file.
+Optimizing module decoder.
+Optimizing module dff_clk.
+Optimizing module dff_en.
+Optimizing module instrmemory.
+Optimizing module top.
+
+12.8.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+12.8.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ALUdec..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \CSR..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Control_Unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \decoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \dff_clk..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \dff_en..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \instrmemory..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~109 debug messages>
+
+12.8.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU.
+  Optimizing cells in module \ALUdec.
+  Optimizing cells in module \CSR.
+  Optimizing cells in module \Control_Unit.
+  Optimizing cells in module \Reg_file.
+  Optimizing cells in module \decoder.
+  Optimizing cells in module \dff_clk.
+  Optimizing cells in module \dff_en.
+  Optimizing cells in module \instrmemory.
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+12.8.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU'.
+Finding identical cells in module `\ALUdec'.
+Finding identical cells in module `\CSR'.
+Finding identical cells in module `\Control_Unit'.
+Finding identical cells in module `\Reg_file'.
+Finding identical cells in module `\decoder'.
+Finding identical cells in module `\dff_clk'.
+Finding identical cells in module `\dff_en'.
+Finding identical cells in module `\instrmemory'.
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+12.8.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+12.8.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU..
+Finding unused cells or wires in module \ALUdec..
+Finding unused cells or wires in module \CSR..
+Finding unused cells or wires in module \Control_Unit..
+Finding unused cells or wires in module \Reg_file..
+Finding unused cells or wires in module \decoder..
+Finding unused cells or wires in module \dff_clk..
+Finding unused cells or wires in module \dff_en..
+Finding unused cells or wires in module \instrmemory..
+Finding unused cells or wires in module \top..
+
+12.8.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU.
+Optimizing module ALUdec.
+Optimizing module CSR.
+Optimizing module Control_Unit.
+Optimizing module Reg_file.
+Optimizing module decoder.
+Optimizing module dff_clk.
+Optimizing module dff_en.
+Optimizing module instrmemory.
+Optimizing module top.
+
+12.8.23. Finished fast OPT passes. (There is nothing left to do.)
+
+12.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 4) from port B of cell ALU.$procmux$316_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ALU.$procmux$317_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ALU.$procmux$318_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ALU.$procmux$319_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ALU.$procmux$320_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ALU.$procmux$321_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell ALU.$procmux$322_CMP0 ($eq).
+Removed top 3 bits (of 4) from mux cell ALUdec.$ternary$ALUdec.v:50$67 ($mux).
+Removed top 3 bits (of 4) from mux cell ALUdec.$procmux$287 ($mux).
+Removed top 1 bits (of 2) from port B of cell ALUdec.$procmux$293_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ALUdec.$procmux$300_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ALUdec.$procmux$301_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ALUdec.$procmux$302_CMP0 ($eq).
+Removed top 3 bits (of 4) from wire ALUdec.$3\aluselect[3:0].
+Removed top 2 bits (of 12) from port B of cell CSR.$procmux$206_CMP0 ($eq).
+Removed top 2 bits (of 12) from port B of cell CSR.$procmux$218_CMP0 ($eq).
+Removed top 2 bits (of 12) from port B of cell CSR.$procmux$231_CMP0 ($eq).
+Removed top 2 bits (of 12) from port B of cell CSR.$procmux$241_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell Control_Unit.$eq$Control_Unit.v:90$8 ($eq).
+Removed top 4 bits (of 5) from port B of cell Control_Unit.$eq$Control_Unit.v:106$14 ($eq).
+Removed top 5 bits (of 7) from port B of cell Control_Unit.$eq$Control_Unit.v:111$16 ($eq).
+Removed top 1 bits (of 7) from port B of cell Control_Unit.$eq$Control_Unit.v:116$19 ($eq).
+Removed top 3 bits (of 5) from port B of cell Control_Unit.$eq$Control_Unit.v:136$29 ($eq).
+Removed top 1 bits (of 7) from port B of cell Control_Unit.$eq$Control_Unit.v:140$34 ($eq).
+Removed top 2 bits (of 7) from port B of cell Control_Unit.$eq$Control_Unit.v:144$36 ($eq).
+Removed top 2 bits (of 4) from port B of cell Control_Unit.$eq$Control_Unit.v:302$45 ($eq).
+Removed top 1 bits (of 4) from port B of cell Control_Unit.$procmux$350_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell Control_Unit.$procmux$371_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell Control_Unit.$procmux$372_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell Control_Unit.$procmux$374_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell Control_Unit.$procmux$375_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell Control_Unit.$procmux$376_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell Control_Unit.$auto$opt_dff.cc:248:make_patterns_logic$1084 ($ne).
+Removed top 1 bits (of 4) from mux cell Control_Unit.$procmux$674 ($mux).
+Removed top 1 bits (of 4) from mux cell Control_Unit.$procmux$693 ($mux).
+Removed top 1 bits (of 4) from wire Control_Unit.$10\next_state[3:0].
+Removed top 1 bits (of 4) from wire Control_Unit.$9\next_state[3:0].
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$120 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$121 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$122 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$123 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$124 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$125 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$126 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$127 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$128 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$129 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$130 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$131 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$132 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$133 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$134 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$135 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$136 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$137 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$138 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$139 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$140 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$141 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$142 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$143 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$144 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$145 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$146 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$147 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$148 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$149 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$150 (rf).
+Removed top 27 address bits (of 32) from memory init port Reg_file.$meminit$\rf$Reg_file.v:19$151 (rf).
+Removed top 27 address bits (of 32) from memory read port Reg_file.$memrd$\rf$Reg_file.v:32$154 (rf).
+Removed top 1 bits (of 2) from port B of cell decoder.$procmux$277_CMP0 ($eq).
+Removed top 2 address bits (of 2) from memory init port instrmemory.$auto$proc_memwr.cc:45:proc_memwr$991 (RAM).
+Removed top 2 address bits (of 2) from memory read port instrmemory.$memrd$\RAM$instrmemory.v:34$189 (RAM).
+Removed cell instrmemory.$procmux$263 ($mux).
+Removed top 1 bits (of 2) from port B of cell top.$procmux$941_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell top.$procmux$946_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell top.$procmux$951_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell top.$procmux$956_CMP0 ($eq).
+
+12.10. Executing PEEPOPT pass (run peephole optimizers).
+
+12.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU..
+Finding unused cells or wires in module \ALUdec..
+Finding unused cells or wires in module \CSR..
+Finding unused cells or wires in module \Control_Unit..
+Finding unused cells or wires in module \Reg_file..
+Finding unused cells or wires in module \decoder..
+Finding unused cells or wires in module \dff_clk..
+Finding unused cells or wires in module \dff_en..
+Finding unused cells or wires in module \instrmemory..
+Finding unused cells or wires in module \top..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~3 debug messages>
+
+12.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module ALU:
+  creating $macc model for $add$ALU.v:23$54 ($add).
+  creating $macc model for $sub$ALU.v:24$55 ($sub).
+  creating $alu model for $macc $sub$ALU.v:24$55.
+  creating $alu model for $macc $add$ALU.v:23$54.
+  creating $alu model for $lt$ALU.v:28$59 ($lt): new $alu
+  creating $alu model for $lt$ALU.v:29$60 ($lt): merged with $sub$ALU.v:24$55.
+  creating $alu cell for $lt$ALU.v:28$59: $auto$alumacc.cc:495:replace_alu$1096
+  creating $alu cell for $add$ALU.v:23$54: $auto$alumacc.cc:495:replace_alu$1103
+  creating $alu cell for $sub$ALU.v:24$55, $lt$ALU.v:29$60: $auto$alumacc.cc:495:replace_alu$1106
+  created 3 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module ALUdec:
+  created 0 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module CSR:
+  created 0 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module Control_Unit:
+  created 0 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module Reg_file:
+  created 0 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module decoder:
+  created 0 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module dff_clk:
+  created 0 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module dff_en:
+  created 0 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module instrmemory:
+  created 0 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module top:
+  created 0 $alu and 0 $macc cells.
+
+12.13. Executing SHARE pass (SAT-based resource sharing).
+Found 3 cells in module ALU that may be considered for resource sharing.
+  Analyzing resource sharing options for $sshr$ALU.v:32$63 ($sshr):
+    Found 1 activation_patterns using ctrl signal $procmux$314_CMP.
+    No candidates found.
+  Analyzing resource sharing options for $shr$ALU.v:31$62 ($shr):
+    Found 1 activation_patterns using ctrl signal $procmux$315_CMP.
+    No candidates found.
+  Analyzing resource sharing options for $shl$ALU.v:30$61 ($shl):
+    Found 1 activation_patterns using ctrl signal $procmux$316_CMP.
+    No candidates found.
+Found 2 cells in module Reg_file that may be considered for resource sharing.
+  Analyzing resource sharing options for $memrd$\rf$Reg_file.v:31$118 ($memrd):
+    Found 1 activation_patterns using ctrl signal $eq$Reg_file.v:31$117_Y.
+    Found 1 candidates: $memrd$\rf$Reg_file.v:30$115
+    Analyzing resource sharing with $memrd$\rf$Reg_file.v:30$115 ($memrd):
+      Found 1 activation_patterns using ctrl signal $eq$Reg_file.v:30$114_Y.
+      Activation pattern for cell $memrd$\rf$Reg_file.v:31$118: $eq$Reg_file.v:31$117_Y = 1'0
+      Activation pattern for cell $memrd$\rf$Reg_file.v:30$115: $eq$Reg_file.v:30$114_Y = 1'0
+      Size of SAT problem: 2 cells, 30 variables, 59 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { $eq$Reg_file.v:31$117_Y $eq$Reg_file.v:30$114_Y } = 2'00
+  Analyzing resource sharing options for $memrd$\rf$Reg_file.v:30$115 ($memrd):
+    Found 1 activation_patterns using ctrl signal $eq$Reg_file.v:30$114_Y.
+    No candidates found.
+
+12.14. Executing OPT pass (performing simple optimizations).
+
+12.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU.
+Optimizing module ALUdec.
+Optimizing module CSR.
+Optimizing module Control_Unit.
+Optimizing module Reg_file.
+Optimizing module decoder.
+Optimizing module dff_clk.
+Optimizing module dff_en.
+Optimizing module instrmemory.
+Optimizing module top.
+
+12.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU'.
+Finding identical cells in module `\ALUdec'.
+Finding identical cells in module `\CSR'.
+Finding identical cells in module `\Control_Unit'.
+Finding identical cells in module `\Reg_file'.
+Finding identical cells in module `\decoder'.
+Finding identical cells in module `\dff_clk'.
+Finding identical cells in module `\dff_en'.
+Finding identical cells in module `\instrmemory'.
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+12.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ALUdec..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \CSR..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Control_Unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \decoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \dff_clk..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \dff_en..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \instrmemory..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~107 debug messages>
+
+12.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU.
+  Optimizing cells in module \ALUdec.
+  Optimizing cells in module \CSR.
+  Optimizing cells in module \Control_Unit.
+  Optimizing cells in module \Reg_file.
+  Optimizing cells in module \decoder.
+  Optimizing cells in module \dff_clk.
+  Optimizing cells in module \dff_en.
+  Optimizing cells in module \instrmemory.
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+12.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU'.
+Finding identical cells in module `\ALUdec'.
+Finding identical cells in module `\CSR'.
+Finding identical cells in module `\Control_Unit'.
+Finding identical cells in module `\Reg_file'.
+Finding identical cells in module `\decoder'.
+Finding identical cells in module `\dff_clk'.
+Finding identical cells in module `\dff_en'.
+Finding identical cells in module `\instrmemory'.
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+12.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+12.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU..
+Finding unused cells or wires in module \ALUdec..
+Finding unused cells or wires in module \CSR..
+Finding unused cells or wires in module \Control_Unit..
+Finding unused cells or wires in module \Reg_file..
+Finding unused cells or wires in module \decoder..
+Finding unused cells or wires in module \dff_clk..
+Finding unused cells or wires in module \dff_en..
+Finding unused cells or wires in module \instrmemory..
+Finding unused cells or wires in module \top..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+12.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU.
+Optimizing module ALUdec.
+Optimizing module CSR.
+Optimizing module Control_Unit.
+Optimizing module Reg_file.
+Optimizing module decoder.
+Optimizing module dff_clk.
+Optimizing module dff_en.
+Optimizing module instrmemory.
+Optimizing module top.
+
+12.14.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+12.14.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ALUdec..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \CSR..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Control_Unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \decoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \dff_clk..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \dff_en..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \instrmemory..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~107 debug messages>
+
+12.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU.
+  Optimizing cells in module \ALUdec.
+  Optimizing cells in module \CSR.
+  Optimizing cells in module \Control_Unit.
+  Optimizing cells in module \Reg_file.
+  Optimizing cells in module \decoder.
+  Optimizing cells in module \dff_clk.
+  Optimizing cells in module \dff_en.
+  Optimizing cells in module \instrmemory.
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+12.14.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU'.
+Finding identical cells in module `\ALUdec'.
+Finding identical cells in module `\CSR'.
+Finding identical cells in module `\Control_Unit'.
+Finding identical cells in module `\Reg_file'.
+Finding identical cells in module `\decoder'.
+Finding identical cells in module `\dff_clk'.
+Finding identical cells in module `\dff_en'.
+Finding identical cells in module `\instrmemory'.
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+12.14.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+12.14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU..
+Finding unused cells or wires in module \ALUdec..
+Finding unused cells or wires in module \CSR..
+Finding unused cells or wires in module \Control_Unit..
+Finding unused cells or wires in module \Reg_file..
+Finding unused cells or wires in module \decoder..
+Finding unused cells or wires in module \dff_clk..
+Finding unused cells or wires in module \dff_en..
+Finding unused cells or wires in module \instrmemory..
+Finding unused cells or wires in module \top..
+
+12.14.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU.
+Optimizing module ALUdec.
+Optimizing module CSR.
+Optimizing module Control_Unit.
+Optimizing module Reg_file.
+Optimizing module decoder.
+Optimizing module dff_clk.
+Optimizing module dff_en.
+Optimizing module instrmemory.
+Optimizing module top.
+
+12.14.16. Finished fast OPT passes. (There is nothing left to do.)
+
+12.15. Executing MEMORY pass.
+
+12.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+12.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+12.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+  Analyzing Reg_file.rf write port 0.
+  Analyzing instrmemory.RAM write port 0.
+
+12.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+12.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+Checking read port `\rf'[0] in module `\Reg_file': no output FF found.
+Checking read port `\rf'[1] in module `\Reg_file': no output FF found.
+Checking read port `\rf'[2] in module `\Reg_file': no output FF found.
+Checking read port address `\rf'[0] in module `\Reg_file': no address FF found.
+Checking read port address `\rf'[1] in module `\Reg_file': no address FF found.
+Checking read port address `\rf'[2] in module `\Reg_file': no address FF found.
+Checking read port `\RAM'[0] in module `\instrmemory': no output FF found.
+Checking read port address `\RAM'[0] in module `\instrmemory': no address FF found.
+
+12.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU..
+Finding unused cells or wires in module \ALUdec..
+Finding unused cells or wires in module \CSR..
+Finding unused cells or wires in module \Control_Unit..
+Finding unused cells or wires in module \Reg_file..
+Finding unused cells or wires in module \decoder..
+Finding unused cells or wires in module \dff_clk..
+Finding unused cells or wires in module \dff_en..
+Finding unused cells or wires in module \instrmemory..
+Finding unused cells or wires in module \top..
+
+12.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+Consolidating read ports of memory Reg_file.rf by address:
+
+12.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+12.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU..
+Finding unused cells or wires in module \ALUdec..
+Finding unused cells or wires in module \CSR..
+Finding unused cells or wires in module \Control_Unit..
+Finding unused cells or wires in module \Reg_file..
+Finding unused cells or wires in module \decoder..
+Finding unused cells or wires in module \dff_clk..
+Finding unused cells or wires in module \dff_en..
+Finding unused cells or wires in module \instrmemory..
+Finding unused cells or wires in module \top..
+
+12.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+12.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU..
+Finding unused cells or wires in module \ALUdec..
+Finding unused cells or wires in module \CSR..
+Finding unused cells or wires in module \Control_Unit..
+Finding unused cells or wires in module \Reg_file..
+Finding unused cells or wires in module \decoder..
+Finding unused cells or wires in module \dff_clk..
+Finding unused cells or wires in module \dff_en..
+Finding unused cells or wires in module \instrmemory..
+Finding unused cells or wires in module \top..
+
+12.17. Executing OPT pass (performing simple optimizations).
+
+12.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU.
+Optimizing module ALUdec.
+<suppressed ~3 debug messages>
+Optimizing module CSR.
+<suppressed ~6 debug messages>
+Optimizing module Control_Unit.
+Couldn't topologically sort cells, optimizing module Control_Unit may take a longer time.
+Couldn't topologically sort cells, optimizing module Control_Unit may take a longer time.
+Couldn't topologically sort cells, optimizing module Control_Unit may take a longer time.
+Couldn't topologically sort cells, optimizing module Control_Unit may take a longer time.
+Couldn't topologically sort cells, optimizing module Control_Unit may take a longer time.
+<suppressed ~31 debug messages>
+Optimizing module Reg_file.
+<suppressed ~3 debug messages>
+Optimizing module decoder.
+<suppressed ~1 debug messages>
+Optimizing module dff_clk.
+Optimizing module dff_en.
+Optimizing module instrmemory.
+<suppressed ~2 debug messages>
+Optimizing module top.
+<suppressed ~2 debug messages>
+
+12.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU'.
+Finding identical cells in module `\ALUdec'.
+Finding identical cells in module `\CSR'.
+Finding identical cells in module `\Control_Unit'.
+Finding identical cells in module `\Reg_file'.
+Finding identical cells in module `\decoder'.
+Finding identical cells in module `\dff_clk'.
+Finding identical cells in module `\dff_en'.
+Finding identical cells in module `\instrmemory'.
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+12.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+12.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU..
+Finding unused cells or wires in module \ALUdec..
+Finding unused cells or wires in module \CSR..
+Finding unused cells or wires in module \Control_Unit..
+Finding unused cells or wires in module \Reg_file..
+Finding unused cells or wires in module \decoder..
+Finding unused cells or wires in module \dff_clk..
+Finding unused cells or wires in module \dff_en..
+Finding unused cells or wires in module \instrmemory..
+Finding unused cells or wires in module \top..
+Removed 15 unused cells and 33 unused wires.
+<suppressed ~22 debug messages>
+
+12.17.5. Finished fast OPT passes.
+
+12.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+Mapping memory \rf in module \Reg_file:
+  created 32 $dff cells and 0 static cells of width 32.
+  read interface: 0 $dff and 93 $mux cells.
+  write interface: 32 write mux blocks.
+Mapping memory \RAM in module \instrmemory:
+  created 1 $dff cells and 0 static cells of width 32.
+  read interface: 0 $dff and 0 $mux cells.
+  write interface: 1 write mux blocks.
+
+12.19. Executing OPT pass (performing simple optimizations).
+
+12.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU.
+Optimizing module ALUdec.
+Optimizing module CSR.
+Optimizing module Control_Unit.
+Optimizing module Reg_file.
+<suppressed ~41 debug messages>
+Optimizing module decoder.
+Optimizing module dff_clk.
+Optimizing module dff_en.
+Optimizing module instrmemory.
+<suppressed ~2 debug messages>
+Optimizing module top.
+
+12.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU'.
+Finding identical cells in module `\ALUdec'.
+Finding identical cells in module `\CSR'.
+Finding identical cells in module `\Control_Unit'.
+Finding identical cells in module `\Reg_file'.
+Finding identical cells in module `\decoder'.
+Finding identical cells in module `\dff_clk'.
+Finding identical cells in module `\dff_en'.
+Finding identical cells in module `\instrmemory'.
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+12.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ALUdec..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \CSR..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Control_Unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \decoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \dff_clk..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \dff_en..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \instrmemory..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~191 debug messages>
+
+12.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU.
+  Optimizing cells in module \ALUdec.
+  Optimizing cells in module \CSR.
+  Optimizing cells in module \Control_Unit.
+    Consolidated identical input bits for $mux cell $procmux$643:
+      Old ports: A=4'0000, B=4'1011, Y=$12\next_state[3:0]
+      New ports: A=1'0, B=1'1, Y=$12\next_state[3:0] [0]
+      New connections: $12\next_state[3:0] [3:1] = { $12\next_state[3:0] [0] 1'0 $12\next_state[3:0] [0] }
+    Consolidated identical input bits for $mux cell $procmux$658:
+      Old ports: A=4'0100, B=4'1011, Y=$11\next_state[3:0]
+      New ports: A=2'10, B=2'01, Y={ $11\next_state[3:0] [2] $11\next_state[3:0] [0] }
+      New connections: { $11\next_state[3:0] [3] $11\next_state[3:0] [1] } = { $11\next_state[3:0] [0] $11\next_state[3:0] [0] }
+    Consolidated identical input bits for $mux cell $procmux$674:
+      Old ports: A=3'000, B=3'101, Y=$10\next_state[3:0]
+      New ports: A=1'0, B=1'1, Y=$10\next_state[3:0] [0]
+      New connections: $10\next_state[3:0] [2:1] = { $10\next_state[3:0] [0] 1'0 }
+    Consolidated identical input bits for $mux cell $procmux$710:
+      Old ports: A=4'0000, B=4'1001, Y=$8\next_state[3:0]
+      New ports: A=1'0, B=1'1, Y=$8\next_state[3:0] [0]
+      New connections: $8\next_state[3:0] [3:1] = { $8\next_state[3:0] [0] 2'00 }
+    Consolidated identical input bits for $mux cell $procmux$920:
+      Old ports: A=4'0011, B=4'1011, Y=$2\mcause_next[3:0]
+      New ports: A=1'0, B=1'1, Y=$2\mcause_next[3:0] [3]
+      New connections: $2\mcause_next[3:0] [2:0] = 3'011
+  Optimizing cells in module \Control_Unit.
+    Consolidated identical input bits for $mux cell $procmux$745:
+      Old ports: A=$8\next_state[3:0], B=4'1000, Y=$7\next_state[3:0]
+      New ports: A={ $8\next_state[3:0] [0] $8\next_state[3:0] [0] }, B=2'10, Y={ $7\next_state[3:0] [3] $7\next_state[3:0] [0] }
+      New connections: $7\next_state[3:0] [2:1] = 2'00
+  Optimizing cells in module \Control_Unit.
+    Consolidated identical input bits for $mux cell $procmux$777:
+      Old ports: A=$7\next_state[3:0], B=4'1010, Y=$6\next_state[3:0]
+      New ports: A={ $7\next_state[3:0] [3] 1'0 $7\next_state[3:0] [0] }, B=3'110, Y={ $6\next_state[3:0] [3] $6\next_state[3:0] [1:0] }
+      New connections: $6\next_state[3:0] [2] = 1'0
+  Optimizing cells in module \Control_Unit.
+  Optimizing cells in module \Reg_file.
+  Optimizing cells in module \decoder.
+    Consolidated identical input bits for $pmux cell $procmux$274:
+      Old ports: A={ \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24:13] }, B={ \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24:18] \instruction [4:0] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [0] \instruction [23:18] \instruction [4:1] 1'0 \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [12:5] \instruction [13] \instruction [23:14] 1'0 }, Y=\immext
+      New ports: A={ \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [17:13] }, B={ \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [4:0] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [0] \instruction [4:1] 1'0 \instruction [12:5] \instruction [13] \instruction [17:14] 1'0 }, Y={ \immext [19:11] \immext [4:0] }
+      New connections: { \immext [31:20] \immext [10:5] } = { \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24] \instruction [24:18] }
+  Optimizing cells in module \decoder.
+  Optimizing cells in module \dff_clk.
+  Optimizing cells in module \dff_en.
+  Optimizing cells in module \instrmemory.
+  Optimizing cells in module \top.
+Performed a total of 8 changes.
+
+12.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU'.
+Finding identical cells in module `\ALUdec'.
+Finding identical cells in module `\CSR'.
+Finding identical cells in module `\Control_Unit'.
+Finding identical cells in module `\Reg_file'.
+Finding identical cells in module `\decoder'.
+Finding identical cells in module `\dff_clk'.
+Finding identical cells in module `\dff_en'.
+Finding identical cells in module `\instrmemory'.
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+12.19.6. Executing OPT_SHARE pass.
+
+12.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+12.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU..
+Finding unused cells or wires in module \ALUdec..
+Finding unused cells or wires in module \CSR..
+Finding unused cells or wires in module \Control_Unit..
+Finding unused cells or wires in module \Reg_file..
+Finding unused cells or wires in module \decoder..
+Finding unused cells or wires in module \dff_clk..
+Finding unused cells or wires in module \dff_en..
+Finding unused cells or wires in module \instrmemory..
+Finding unused cells or wires in module \top..
+Removed 0 unused cells and 167 unused wires.
+<suppressed ~2 debug messages>
+
+12.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU.
+Optimizing module ALUdec.
+Optimizing module CSR.
+Optimizing module Control_Unit.
+<suppressed ~4 debug messages>
+Optimizing module Reg_file.
+Optimizing module decoder.
+Optimizing module dff_clk.
+Optimizing module dff_en.
+Optimizing module instrmemory.
+Optimizing module top.
+
+12.19.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+12.19.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ALUdec..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \CSR..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Control_Unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \decoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \dff_clk..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \dff_en..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \instrmemory..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~187 debug messages>
+
+12.19.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU.
+  Optimizing cells in module \ALUdec.
+  Optimizing cells in module \CSR.
+  Optimizing cells in module \Control_Unit.
+  Optimizing cells in module \Reg_file.
+  Optimizing cells in module \decoder.
+  Optimizing cells in module \dff_clk.
+  Optimizing cells in module \dff_en.
+  Optimizing cells in module \instrmemory.
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+12.19.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU'.
+Finding identical cells in module `\ALUdec'.
+Finding identical cells in module `\CSR'.
+Finding identical cells in module `\Control_Unit'.
+Finding identical cells in module `\Reg_file'.
+Finding identical cells in module `\decoder'.
+Finding identical cells in module `\dff_clk'.
+Finding identical cells in module `\dff_en'.
+Finding identical cells in module `\instrmemory'.
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+12.19.14. Executing OPT_SHARE pass.
+
+12.19.15. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $memory\rf[9]$1137 ($dff) from module Reg_file (D = \wd3, Q = \rf[9]).
+Adding EN signal on $memory\rf[8]$1135 ($dff) from module Reg_file (D = \wd3, Q = \rf[8]).
+Adding EN signal on $memory\rf[7]$1133 ($dff) from module Reg_file (D = \wd3, Q = \rf[7]).
+Adding EN signal on $memory\rf[6]$1131 ($dff) from module Reg_file (D = \wd3, Q = \rf[6]).
+Adding EN signal on $memory\rf[5]$1129 ($dff) from module Reg_file (D = \wd3, Q = \rf[5]).
+Adding EN signal on $memory\rf[4]$1127 ($dff) from module Reg_file (D = \wd3, Q = \rf[4]).
+Adding EN signal on $memory\rf[3]$1125 ($dff) from module Reg_file (D = \wd3, Q = \rf[3]).
+Adding EN signal on $memory\rf[31]$1181 ($dff) from module Reg_file (D = \wd3, Q = \rf[31]).
+Adding EN signal on $memory\rf[30]$1179 ($dff) from module Reg_file (D = \wd3, Q = \rf[30]).
+Adding EN signal on $memory\rf[2]$1123 ($dff) from module Reg_file (D = \wd3, Q = \rf[2]).
+Adding EN signal on $memory\rf[29]$1177 ($dff) from module Reg_file (D = \wd3, Q = \rf[29]).
+Adding EN signal on $memory\rf[28]$1175 ($dff) from module Reg_file (D = \wd3, Q = \rf[28]).
+Adding EN signal on $memory\rf[27]$1173 ($dff) from module Reg_file (D = \wd3, Q = \rf[27]).
+Adding EN signal on $memory\rf[26]$1171 ($dff) from module Reg_file (D = \wd3, Q = \rf[26]).
+Adding EN signal on $memory\rf[25]$1169 ($dff) from module Reg_file (D = \wd3, Q = \rf[25]).
+Adding EN signal on $memory\rf[24]$1167 ($dff) from module Reg_file (D = \wd3, Q = \rf[24]).
+Adding EN signal on $memory\rf[23]$1165 ($dff) from module Reg_file (D = \wd3, Q = \rf[23]).
+Adding EN signal on $memory\rf[22]$1163 ($dff) from module Reg_file (D = \wd3, Q = \rf[22]).
+Adding EN signal on $memory\rf[21]$1161 ($dff) from module Reg_file (D = \wd3, Q = \rf[21]).
+Adding EN signal on $memory\rf[20]$1159 ($dff) from module Reg_file (D = \wd3, Q = \rf[20]).
+Adding EN signal on $memory\rf[1]$1121 ($dff) from module Reg_file (D = \wd3, Q = \rf[1]).
+Adding EN signal on $memory\rf[19]$1157 ($dff) from module Reg_file (D = \wd3, Q = \rf[19]).
+Adding EN signal on $memory\rf[18]$1155 ($dff) from module Reg_file (D = \wd3, Q = \rf[18]).
+Adding EN signal on $memory\rf[17]$1153 ($dff) from module Reg_file (D = \wd3, Q = \rf[17]).
+Adding EN signal on $memory\rf[16]$1151 ($dff) from module Reg_file (D = \wd3, Q = \rf[16]).
+Adding EN signal on $memory\rf[15]$1149 ($dff) from module Reg_file (D = \wd3, Q = \rf[15]).
+Adding EN signal on $memory\rf[14]$1147 ($dff) from module Reg_file (D = \wd3, Q = \rf[14]).
+Adding EN signal on $memory\rf[13]$1145 ($dff) from module Reg_file (D = \wd3, Q = \rf[13]).
+Adding EN signal on $memory\rf[12]$1143 ($dff) from module Reg_file (D = \wd3, Q = \rf[12]).
+Adding EN signal on $memory\rf[11]$1141 ($dff) from module Reg_file (D = \wd3, Q = \rf[11]).
+Adding EN signal on $memory\rf[10]$1139 ($dff) from module Reg_file (D = \wd3, Q = \rf[10]).
+Adding EN signal on $memory\rf[0]$1119 ($dff) from module Reg_file (D = \wd3, Q = \rf[0]).
+Adding EN signal on $memory\RAM[0]$1706 ($dff) from module instrmemory (D = \wd, Q = \RAM[0]).
+
+12.19.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU..
+Finding unused cells or wires in module \ALUdec..
+Finding unused cells or wires in module \CSR..
+Finding unused cells or wires in module \Control_Unit..
+Finding unused cells or wires in module \Reg_file..
+Finding unused cells or wires in module \decoder..
+Finding unused cells or wires in module \dff_clk..
+Finding unused cells or wires in module \dff_en..
+Finding unused cells or wires in module \instrmemory..
+Finding unused cells or wires in module \top..
+Removed 33 unused cells and 37 unused wires.
+<suppressed ~36 debug messages>
+
+12.19.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU.
+Optimizing module ALUdec.
+Optimizing module CSR.
+Optimizing module Control_Unit.
+Optimizing module Reg_file.
+Optimizing module decoder.
+Optimizing module dff_clk.
+Optimizing module dff_en.
+Optimizing module instrmemory.
+Optimizing module top.
+
+12.19.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+12.19.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ALUdec..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \CSR..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Control_Unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \decoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \dff_clk..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \dff_en..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \instrmemory..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~121 debug messages>
+
+12.19.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU.
+  Optimizing cells in module \ALUdec.
+  Optimizing cells in module \CSR.
+  Optimizing cells in module \Control_Unit.
+  Optimizing cells in module \Reg_file.
+  Optimizing cells in module \decoder.
+  Optimizing cells in module \dff_clk.
+  Optimizing cells in module \dff_en.
+  Optimizing cells in module \instrmemory.
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+12.19.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU'.
+Finding identical cells in module `\ALUdec'.
+Finding identical cells in module `\CSR'.
+Finding identical cells in module `\Control_Unit'.
+Finding identical cells in module `\Reg_file'.
+Finding identical cells in module `\decoder'.
+Finding identical cells in module `\dff_clk'.
+Finding identical cells in module `\dff_en'.
+Finding identical cells in module `\instrmemory'.
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+12.19.22. Executing OPT_SHARE pass.
+
+12.19.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+12.19.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU..
+Finding unused cells or wires in module \ALUdec..
+Finding unused cells or wires in module \CSR..
+Finding unused cells or wires in module \Control_Unit..
+Finding unused cells or wires in module \Reg_file..
+Finding unused cells or wires in module \decoder..
+Finding unused cells or wires in module \dff_clk..
+Finding unused cells or wires in module \dff_en..
+Finding unused cells or wires in module \instrmemory..
+Finding unused cells or wires in module \top..
+
+12.19.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU.
+Optimizing module ALUdec.
+Optimizing module CSR.
+Optimizing module Control_Unit.
+Optimizing module Reg_file.
+Optimizing module decoder.
+Optimizing module dff_clk.
+Optimizing module dff_en.
+Optimizing module instrmemory.
+Optimizing module top.
+
+12.19.26. Finished fast OPT passes. (There is nothing left to do.)
+
+12.20. Executing TECHMAP pass (map to technology primitives).
+
+12.20.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `\$connect'.
+Generating RTLIL representation for module `\$input_port'.
+Successfully finished Verilog frontend.
+
+12.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $eq.
+Using template $paramod$54d740639e1393b22262823179ff783ea9f17a35\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $logic_not.
+Using template $paramod$8fabc56b80a569262acfc42757a02ca0b8e91278\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $adffe.
+Using extmapper simplemap for cells of type $adff.
+Using template $paramod$13af41b20a9ff4e701d080c0d60e0efb0173cb4d\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $logic_or.
+Using template $paramod$521ce43182eecb9f60c72393a788160d2c356bf5\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $reduce_and.
+Using template $paramod$a13703aa027da371a1931fc542d213d7de559b19\_90_pmux for cells of type $pmux.
+Using template $paramod$c2e415ef15bc3ccd2723772353a6b450d3d76206\_90_pmux for cells of type $pmux.
+Using template $paramod$97565c3687be688407d1272a293bd9d0ae6852dc\_90_pmux for cells of type $pmux.
+Using template $paramod$b098bc6f249c0ac91c4d6e19d54b23c285914115\_90_pmux for cells of type $pmux.
+Using template $paramod$33afdd83bf3811dac2de7a968d39eea5718691bc\_90_pmux for cells of type $pmux.
+Using template $paramod$bf2533632d512eac76dd186c0da49367e29b8e98\_90_pmux for cells of type $pmux.
+Using template $paramod$2653f68ddb8eab7b1907b4a20767b72a824a7a36\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod$fbc7873bff55778c0b3173955b7e4bce1d9d6834\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $or.
+Using template $paramod$constmap:4621fcf06a436d1e2a4080e2ed9866a7d07a6e07$paramod$335cfd09f1afa8139c4aafcbbe5f361887b79c5e\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shl.
+Using template $paramod$constmap:4621fcf06a436d1e2a4080e2ed9866a7d07a6e07$paramod$feecc7a0dbd012970970f2858f15e786e251f677\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shr.
+Using template $paramod$constmap:4621fcf06a436d1e2a4080e2ed9866a7d07a6e07$paramod$e765c459d3029c22a22a27989e94858fd9ebfa9c\_90_shift_ops_shr_shl_sshl_sshr for cells of type $sshr.
+Using template $paramod$104d3d1e82b09b030a785dad8a5e608a6d4401f7\_90_pmux for cells of type $pmux.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000100000 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+No more expansions possible.
+<suppressed ~2740 debug messages>
+
+12.21. Executing OPT pass (performing simple optimizations).
+
+12.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU.
+<suppressed ~266 debug messages>
+Optimizing module ALUdec.
+<suppressed ~77 debug messages>
+Optimizing module CSR.
+<suppressed ~50 debug messages>
+Optimizing module Control_Unit.
+<suppressed ~272 debug messages>
+Optimizing module Reg_file.
+<suppressed ~64 debug messages>
+Optimizing module decoder.
+<suppressed ~10 debug messages>
+Optimizing module dff_clk.
+Optimizing module dff_en.
+Optimizing module instrmemory.
+Optimizing module top.
+<suppressed ~81 debug messages>
+
+12.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU'.
+<suppressed ~1476 debug messages>
+Finding identical cells in module `\ALUdec'.
+<suppressed ~45 debug messages>
+Finding identical cells in module `\CSR'.
+<suppressed ~87 debug messages>
+Finding identical cells in module `\Control_Unit'.
+<suppressed ~495 debug messages>
+Finding identical cells in module `\Reg_file'.
+Finding identical cells in module `\decoder'.
+<suppressed ~51 debug messages>
+Finding identical cells in module `\dff_clk'.
+Finding identical cells in module `\dff_en'.
+Finding identical cells in module `\instrmemory'.
+Finding identical cells in module `\top'.
+<suppressed ~9 debug messages>
+Removed a total of 721 cells.
+
+12.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+12.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU..
+Finding unused cells or wires in module \ALUdec..
+Finding unused cells or wires in module \CSR..
+Finding unused cells or wires in module \Control_Unit..
+Finding unused cells or wires in module \Reg_file..
+Finding unused cells or wires in module \decoder..
+Finding unused cells or wires in module \dff_clk..
+Finding unused cells or wires in module \dff_en..
+Finding unused cells or wires in module \instrmemory..
+Finding unused cells or wires in module \top..
+Removed 17 unused cells and 1446 unused wires.
+<suppressed ~24 debug messages>
+
+12.21.5. Finished fast OPT passes.
+
+12.22. Executing ABC pass (technology mapping using ABC).
+
+12.22.1. Extracting gate netlist of module `\ALU' to `<abc-temp-dir>/input.blif'..
+
+12.22.1.1. Executed ABC.
+Extracted 1485 gates and 1554 wires to a netlist network with 68 inputs and 33 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Sep 19 2025 21:06:08)
+ABC: abc 01> set abcout /dev/stdout
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library /tmp/yosys-abc-Ucywgj/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: abc 04> echo "ABC_DONE"
+
+12.22.1.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:       57
+ABC RESULTS:            ANDNOT cells:      585
+ABC RESULTS:               MUX cells:      310
+ABC RESULTS:              NAND cells:       64
+ABC RESULTS:               NOR cells:       31
+ABC RESULTS:               NOT cells:       31
+ABC RESULTS:                OR cells:      228
+ABC RESULTS:             ORNOT cells:       63
+ABC RESULTS:              XNOR cells:       34
+ABC RESULTS:               XOR cells:       62
+ABC RESULTS:        internal signals:     1453
+ABC RESULTS:           input signals:       68
+ABC RESULTS:          output signals:       33
+Removing temp directory.
+
+12.22.2. Extracting gate netlist of module `\ALUdec' to `<abc-temp-dir>/input.blif'..
+
+12.22.2.1. Executed ABC.
+Extracted 49 gates and 57 wires to a netlist network with 7 inputs and 4 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Sep 19 2025 21:06:08)
+ABC: abc 01> set abcout /dev/stdout
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library /tmp/yosys-abc-Ucywgj/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: abc 04> echo "ABC_DONE"
+
+12.22.2.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:        2
+ABC RESULTS:            ANDNOT cells:       12
+ABC RESULTS:               MUX cells:        3
+ABC RESULTS:              NAND cells:        2
+ABC RESULTS:               NOR cells:        1
+ABC RESULTS:               NOT cells:        1
+ABC RESULTS:                OR cells:       11
+ABC RESULTS:             ORNOT cells:        3
+ABC RESULTS:        internal signals:       46
+ABC RESULTS:           input signals:        7
+ABC RESULTS:          output signals:        4
+Removing temp directory.
+
+12.22.3. Extracting gate netlist of module `\CSR' to `<abc-temp-dir>/input.blif'..
+
+12.22.3.1. Executed ABC.
+Extracted 373 gates and 585 wires to a netlist network with 211 inputs and 100 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Sep 19 2025 21:06:08)
+ABC: abc 01> set abcout /dev/stdout
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library /tmp/yosys-abc-Ucywgj/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: abc 04> echo "ABC_DONE"
+
+12.22.3.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:        1
+ABC RESULTS:            ANDNOT cells:      226
+ABC RESULTS:               MUX cells:       36
+ABC RESULTS:              NAND cells:        3
+ABC RESULTS:               NOR cells:        2
+ABC RESULTS:                OR cells:       57
+ABC RESULTS:             ORNOT cells:       36
+ABC RESULTS:        internal signals:      274
+ABC RESULTS:           input signals:      211
+ABC RESULTS:          output signals:      100
+Removing temp directory.
+
+12.22.4. Extracting gate netlist of module `\Control_Unit' to `<abc-temp-dir>/input.blif'..
+
+12.22.4.1. Executed ABC.
+Extracted 298 gates and 354 wires to a netlist network with 54 inputs and 66 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Sep 19 2025 21:06:08)
+ABC: abc 01> set abcout /dev/stdout
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library /tmp/yosys-abc-Ucywgj/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: abc 04> echo "ABC_DONE"
+
+12.22.4.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:       43
+ABC RESULTS:            ANDNOT cells:       79
+ABC RESULTS:              NAND cells:       12
+ABC RESULTS:               NOR cells:       34
+ABC RESULTS:               NOT cells:        4
+ABC RESULTS:                OR cells:       57
+ABC RESULTS:             ORNOT cells:       19
+ABC RESULTS:        internal signals:      234
+ABC RESULTS:           input signals:       54
+ABC RESULTS:          output signals:       66
+Removing temp directory.
+
+12.22.5. Extracting gate netlist of module `\Reg_file' to `<abc-temp-dir>/input.blif'..
+
+12.22.5.1. Executed ABC.
+Extracted 2146 gates and 3187 wires to a netlist network with 1040 inputs and 96 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Sep 19 2025 21:06:08)
+ABC: abc 01> set abcout /dev/stdout
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library /tmp/yosys-abc-Ucywgj/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: abc 04> echo "ABC_DONE"
+
+12.22.5.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:        1
+ABC RESULTS:            ANDNOT cells:       99
+ABC RESULTS:               MUX cells:     1984
+ABC RESULTS:              NAND cells:        2
+ABC RESULTS:               NOR cells:        2
+ABC RESULTS:               NOT cells:        9
+ABC RESULTS:                OR cells:       48
+ABC RESULTS:             ORNOT cells:        4
+ABC RESULTS:        internal signals:     2051
+ABC RESULTS:           input signals:     1040
+ABC RESULTS:          output signals:       96
+Removing temp directory.
+
+12.22.6. Extracting gate netlist of module `\decoder' to `<abc-temp-dir>/input.blif'..
+
+12.22.6.1. Executed ABC.
+Extracted 75 gates and 96 wires to a netlist network with 21 inputs and 14 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Sep 19 2025 21:06:08)
+ABC: abc 01> set abcout /dev/stdout
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library /tmp/yosys-abc-Ucywgj/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: abc 04> echo "ABC_DONE"
+
+12.22.6.2. Re-integrating ABC results.
+ABC RESULTS:            ANDNOT cells:       25
+ABC RESULTS:               MUX cells:       14
+ABC RESULTS:              NAND cells:        1
+ABC RESULTS:               NOR cells:        1
+ABC RESULTS:                OR cells:       26
+ABC RESULTS:             ORNOT cells:        2
+ABC RESULTS:        internal signals:       61
+ABC RESULTS:           input signals:       21
+ABC RESULTS:          output signals:       14
+Removing temp directory.
+
+12.22.7. Extracting gate netlist of module `\dff_clk' to `<abc-temp-dir>/input.blif'..
+Don't call ABC as there is nothing to map.
+
+12.22.7.1. Executed ABC.
+Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
+Removing temp directory.
+
+12.22.8. Extracting gate netlist of module `\dff_en' to `<abc-temp-dir>/input.blif'..
+Don't call ABC as there is nothing to map.
+
+12.22.8.1. Executed ABC.
+Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
+Removing temp directory.
+
+12.22.9. Extracting gate netlist of module `\instrmemory' to `<abc-temp-dir>/input.blif'..
+Don't call ABC as there is nothing to map.
+
+12.22.9.1. Executed ABC.
+Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
+Removing temp directory.
+
+12.22.10. Extracting gate netlist of module `\top' to `<abc-temp-dir>/input.blif'..
+
+12.22.10.1. Executed ABC.
+Extracted 710 gates and 1072 wires to a netlist network with 361 inputs and 160 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Sep 19 2025 21:06:08)
+ABC: abc 01> set abcout /dev/stdout
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library /tmp/yosys-abc-Ucywgj/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: abc 04> echo "ABC_DONE"
+
+12.22.10.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:        1
+ABC RESULTS:            ANDNOT cells:      417
+ABC RESULTS:               MUX cells:       96
+ABC RESULTS:              NAND cells:        4
+ABC RESULTS:               NOR cells:        3
+ABC RESULTS:               NOT cells:        1
+ABC RESULTS:                OR cells:       99
+ABC RESULTS:             ORNOT cells:       68
+ABC RESULTS:        internal signals:      551
+ABC RESULTS:           input signals:      361
+ABC RESULTS:          output signals:      160
+Removing temp directory.
+Removing global temp directory.
+
+12.23. Executing OPT pass (performing simple optimizations).
+
+12.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU.
+<suppressed ~120 debug messages>
+Optimizing module ALUdec.
+Optimizing module CSR.
+Optimizing module Control_Unit.
+<suppressed ~32 debug messages>
+Optimizing module Reg_file.
+<suppressed ~960 debug messages>
+Optimizing module decoder.
+Optimizing module dff_clk.
+Optimizing module dff_en.
+Optimizing module instrmemory.
+Optimizing module top.
+<suppressed ~32 debug messages>
+
+12.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\ALUdec'.
+Finding identical cells in module `\CSR'.
+Finding identical cells in module `\Control_Unit'.
+<suppressed ~18 debug messages>
+Finding identical cells in module `\Reg_file'.
+Finding identical cells in module `\decoder'.
+Finding identical cells in module `\dff_clk'.
+Finding identical cells in module `\dff_en'.
+Finding identical cells in module `\instrmemory'.
+Finding identical cells in module `\top'.
+Removed a total of 7 cells.
+
+12.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+12.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU..
+Finding unused cells or wires in module \ALUdec..
+Finding unused cells or wires in module \CSR..
+Finding unused cells or wires in module \Control_Unit..
+Finding unused cells or wires in module \Reg_file..
+Finding unused cells or wires in module \decoder..
+Finding unused cells or wires in module \dff_clk..
+Finding unused cells or wires in module \dff_en..
+Finding unused cells or wires in module \instrmemory..
+Finding unused cells or wires in module \top..
+Removed 10 unused cells and 3121 unused wires.
+<suppressed ~17 debug messages>
+
+12.23.5. Finished fast OPT passes.
+
+12.24. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `top'. Setting top module to top.
+
+12.24.1. Analyzing design hierarchy..
+Top module:  \top
+Used module:     \dff_clk
+Used module:     \ALU
+Used module:     \CSR
+Used module:     \Control_Unit
+Used module:         \ALUdec
+Used module:     \decoder
+Used module:     \instrmemory
+Used module:     \dff_en
+Used module:     \Reg_file
+
+12.24.2. Analyzing design hierarchy..
+Top module:  \top
+Used module:     \dff_clk
+Used module:     \ALU
+Used module:     \CSR
+Used module:     \Control_Unit
+Used module:         \ALUdec
+Used module:     \decoder
+Used module:     \instrmemory
+Used module:     \dff_en
+Used module:     \Reg_file
+Removed 0 unused modules.
+
+12.25. Printing statistics.
+
+=== ALU ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     1433 wires
+     1529 wire bits
+        5 public wires
+      101 public wire bits
+        5 ports
+      101 port bits
+     1461 cells
+      585   $_ANDNOT_
+       57   $_AND_
+      310   $_MUX_
+       64   $_NAND_
+       31   $_NOR_
+       28   $_NOT_
+       63   $_ORNOT_
+      228   $_OR_
+       33   $_XNOR_
+       62   $_XOR_
+
+=== ALUdec ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       36 wires
+       42 wire bits
+        5 public wires
+       11 public wire bits
+        5 ports
+       11 port bits
+       35 cells
+       12   $_ANDNOT_
+        2   $_AND_
+        3   $_MUX_
+        2   $_NAND_
+        1   $_NOR_
+        1   $_NOT_
+        3   $_ORNOT_
+       11   $_OR_
+
+=== CSR ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      283 wires
+      638 wire bits
+       16 public wires
+      309 public wire bits
+       12 ports
+      181 port bits
+      489 cells
+      226   $_ANDNOT_
+        1   $_AND_
+      124   $_DFFE_PP0P_
+        4   $_DFFE_PP1P_
+       36   $_MUX_
+        3   $_NAND_
+        2   $_NOR_
+       36   $_ORNOT_
+       57   $_OR_
+
+=== Control_Unit ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      219 wires
+      386 wire bits
+       40 public wires
+      207 public wire bits
+       34 ports
+      160 port bits
+      282 cells
+       77   $_ANDNOT_
+       43   $_AND_
+       36   $_DFFE_PP0P_
+        4   $_DFF_PP0_
+       12   $_NAND_
+       31   $_NOR_
+        4   $_NOT_
+       18   $_ORNOT_
+       57   $_OR_
+        1 submodules
+        1   ALUdec
+
+=== Reg_file ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     2121 wires
+     3256 wire bits
+       42 public wires
+     1177 public wire bits
+        9 ports
+      121 port bits
+     3167 cells
+       99   $_ANDNOT_
+        1   $_AND_
+     1024   $_DFFE_PP_
+     1984   $_MUX_
+        2   $_NAND_
+        2   $_NOR_
+        3   $_NOT_
+        4   $_ORNOT_
+       48   $_OR_
+
+=== decoder ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       63 wires
+      146 wire bits
+        8 public wires
+       91 public wire bits
+        8 ports
+       91 port bits
+       69 cells
+       25   $_ANDNOT_
+       14   $_MUX_
+        1   $_NAND_
+        1   $_NOR_
+        2   $_ORNOT_
+       26   $_OR_
+
+=== dff_clk ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        4 wires
+       66 wire bits
+        4 public wires
+       66 public wire bits
+        4 ports
+       66 port bits
+       32 cells
+       32   $_DFF_PP0_
+
+=== dff_en ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        5 wires
+       67 wire bits
+        5 public wires
+       67 public wire bits
+        5 ports
+       67 port bits
+       32 cells
+       32   $_DFFE_PP0P_
+
+=== instrmemory ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        7 wires
+      132 wire bits
+        7 public wires
+      132 public wire bits
+        5 ports
+       98 port bits
+       32 cells
+       32   $_DFFE_PP_
+
+=== top ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      581 wires
+     1280 wire bits
+       53 public wires
+      752 public wire bits
+       43 ports
+      575 port bits
+      688 cells
+      417   $_ANDNOT_
+        1   $_AND_
+       96   $_MUX_
+        4   $_NAND_
+        3   $_NOR_
+       68   $_ORNOT_
+       99   $_OR_
+       13 submodules
+        1   ALU
+        1   CSR
+        1   Control_Unit
+        1   Reg_file
+        1   decoder
+        5   dff_clk
+        2   dff_en
+        1   instrmemory
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+     6447 top
+     1461 ALU
+      489 CSR
+      282 Control_Unit
+       35   ALUdec
+     3167 Reg_file
+       69 decoder
+       32 dff_clk
+       32 dff_en
+       32 instrmemory
+
+        +----------Count including submodules.
+        | 
+     4773 wires
+     7873 wire bits
+      206 public wires
+     3244 public wire bits
+      151 ports
+     1802 port bits
+        - memories
+        - memory bits
+        - processes
+     6447 cells
+     1441   $_ANDNOT_
+      105   $_AND_
+      224   $_DFFE_PP0P_
+        4   $_DFFE_PP1P_
+     1056   $_DFFE_PP_
+      164   $_DFF_PP0_
+     2443   $_MUX_
+       88   $_NAND_
+       71   $_NOR_
+       36   $_NOT_
+      194   $_ORNOT_
+      526   $_OR_
+       33   $_XNOR_
+       62   $_XOR_
+       13 submodules
+        1   ALU
+        1   CSR
+        1   Control_Unit
+        1   Reg_file
+        1   decoder
+        5   dff_clk
+        2   dff_en
+        1   instrmemory
+
+12.26. Executing CHECK pass (checking for obvious problems).
+Checking module ALU...
+Checking module ALUdec...
+Checking module CSR...
+Checking module Control_Unit...
+Checking module Reg_file...
+Checking module decoder...
+Checking module dff_clk...
+Checking module dff_en...
+Checking module instrmemory...
+Checking module top...
+Found and reported 0 problems.
+
+13. Printing statistics.
+
+=== ALU ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     1433 wires
+     1529 wire bits
+        5 public wires
+      101 public wire bits
+        5 ports
+      101 port bits
+     1461 cells
+      585   $_ANDNOT_
+       57   $_AND_
+      310   $_MUX_
+       64   $_NAND_
+       31   $_NOR_
+       28   $_NOT_
+       63   $_ORNOT_
+      228   $_OR_
+       33   $_XNOR_
+       62   $_XOR_
+
+=== ALUdec ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       36 wires
+       42 wire bits
+        5 public wires
+       11 public wire bits
+        5 ports
+       11 port bits
+       35 cells
+       12   $_ANDNOT_
+        2   $_AND_
+        3   $_MUX_
+        2   $_NAND_
+        1   $_NOR_
+        1   $_NOT_
+        3   $_ORNOT_
+       11   $_OR_
+
+=== CSR ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      283 wires
+      638 wire bits
+       16 public wires
+      309 public wire bits
+       12 ports
+      181 port bits
+      489 cells
+      226   $_ANDNOT_
+        1   $_AND_
+      124   $_DFFE_PP0P_
+        4   $_DFFE_PP1P_
+       36   $_MUX_
+        3   $_NAND_
+        2   $_NOR_
+       36   $_ORNOT_
+       57   $_OR_
+
+=== Control_Unit ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      219 wires
+      386 wire bits
+       40 public wires
+      207 public wire bits
+       34 ports
+      160 port bits
+      282 cells
+       77   $_ANDNOT_
+       43   $_AND_
+       36   $_DFFE_PP0P_
+        4   $_DFF_PP0_
+       12   $_NAND_
+       31   $_NOR_
+        4   $_NOT_
+       18   $_ORNOT_
+       57   $_OR_
+        1 submodules
+        1   ALUdec
+
+=== Reg_file ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     2121 wires
+     3256 wire bits
+       42 public wires
+     1177 public wire bits
+        9 ports
+      121 port bits
+     3167 cells
+       99   $_ANDNOT_
+        1   $_AND_
+     1024   $_DFFE_PP_
+     1984   $_MUX_
+        2   $_NAND_
+        2   $_NOR_
+        3   $_NOT_
+        4   $_ORNOT_
+       48   $_OR_
+
+=== decoder ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       63 wires
+      146 wire bits
+        8 public wires
+       91 public wire bits
+        8 ports
+       91 port bits
+       69 cells
+       25   $_ANDNOT_
+       14   $_MUX_
+        1   $_NAND_
+        1   $_NOR_
+        2   $_ORNOT_
+       26   $_OR_
+
+=== dff_clk ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        4 wires
+       66 wire bits
+        4 public wires
+       66 public wire bits
+        4 ports
+       66 port bits
+       32 cells
+       32   $_DFF_PP0_
+
+=== dff_en ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        5 wires
+       67 wire bits
+        5 public wires
+       67 public wire bits
+        5 ports
+       67 port bits
+       32 cells
+       32   $_DFFE_PP0P_
+
+=== instrmemory ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        7 wires
+      132 wire bits
+        7 public wires
+      132 public wire bits
+        5 ports
+       98 port bits
+       32 cells
+       32   $_DFFE_PP_
+
+=== top ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      581 wires
+     1280 wire bits
+       53 public wires
+      752 public wire bits
+       43 ports
+      575 port bits
+      688 cells
+      417   $_ANDNOT_
+        1   $_AND_
+       96   $_MUX_
+        4   $_NAND_
+        3   $_NOR_
+       68   $_ORNOT_
+       99   $_OR_
+       13 submodules
+        1   ALU
+        1   CSR
+        1   Control_Unit
+        1   Reg_file
+        1   decoder
+        5   dff_clk
+        2   dff_en
+        1   instrmemory
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+     6447 top
+     1461 ALU
+      489 CSR
+      282 Control_Unit
+       35   ALUdec
+     3167 Reg_file
+       69 decoder
+       32 dff_clk
+       32 dff_en
+       32 instrmemory
+
+        +----------Count including submodules.
+        | 
+     4773 wires
+     7873 wire bits
+      206 public wires
+     3244 public wire bits
+      151 ports
+     1802 port bits
+        - memories
+        - memory bits
+        - processes
+     6447 cells
+     1441   $_ANDNOT_
+      105   $_AND_
+      224   $_DFFE_PP0P_
+        4   $_DFFE_PP1P_
+     1056   $_DFFE_PP_
+      164   $_DFF_PP0_
+     2443   $_MUX_
+       88   $_NAND_
+       71   $_NOR_
+       36   $_NOT_
+      194   $_ORNOT_
+      526   $_OR_
+       33   $_XNOR_
+       62   $_XOR_
+       13 submodules
+        1   ALU
+        1   CSR
+        1   Control_Unit
+        1   Reg_file
+        1   decoder
+        5   dff_clk
+        2   dff_en
+        1   instrmemory
+
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: 1dc630e6f4, CPU: user 1.52s system 0.12s, MEM: 40.42 MB peak
+Yosys 0.57+148 (git sha1 259bd6fb3, g++ 13.3.0-6ubuntu2~24.04 -fPIC -O3)
+Time spent: 26% 1x abc (0 sec), 14% 27x opt_expr (0 sec), ...

@@ -9,7 +9,9 @@ module Reg_file(
     output   [31:0] rd1,
     output   [31:0] rd2
 );
+    `ifndef SYNTHESIS
     (* verilator public *)
+    `endif
     reg [31:0] rf [0:31];
     integer i;
     initial begin

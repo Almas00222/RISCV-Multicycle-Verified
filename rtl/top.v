@@ -21,7 +21,7 @@ module top
 	output wire IRWrite,
 	output wire PCWrite,
 	output wire zero,
-	output wire [2:0] aluControl,
+	output wire [3:0] aluControl,
 	//Reg_File
 	output wire [31:0] rd1,
 	output wire [1:0] ALUSrcB, //mux
@@ -53,15 +53,36 @@ module top
     	output wire [31:0] pcout,
     	output wire [31:0] oldpcout,
     	output wire [31:0] alupcOut,
-    	output reg [31:0] Adr,
+		output [31:0] Adr,
 	
 	output wire PCUpdate,
 	// ALU SrcA mux
 	output wire [4:0] rd    //feds into reg_files
 );
+	// CSR wires
+	wire [31:0] mtvec_addr;
+	wire [31:0] mepc_addr;
+	wire trap_entry_sig;
+	wire [31:0] trap_pc_sig;
+	wire mret_sig;
+	wire csr_we_sig;
+	wire [1:0] PCSrc;
+	wire [11:0] csr_addr;
+	wire [31:0] csr_rdata;
+	
 	assign Adr = AdrSrc ? ResultOut : pcout; // fed into input of instrmem
 	
-	
+	// PC Source Mux
+	reg [31:0] pc_next;
+	always @(*) begin
+		case (PCSrc)
+			2'b00: pc_next = ResultOut;      // Normal (PC+4, ALU result, etc.)
+			2'b01: pc_next = ResultOut;      // Branch/Jump
+			2'b10: pc_next = mtvec_addr;     // Trap entry
+			2'b11: pc_next = mepc_addr;      // Trap return (MRET)
+			default: pc_next = ResultOut;
+		endcase
+	end
 
 	
 always @(*) begin
@@ -75,7 +96,7 @@ always @(*) begin
 		2'b10: begin
 		SrcAout = out_A;
 		end
-		default: SrcAout = 32'bx;
+		default: SrcAout = 32'h0;
 		endcase
 	end
 	
@@ -96,7 +117,7 @@ always @(*) begin
 		2'b10: begin
 		SrcBout = 4;
 		end
-		default: SrcBout = 32'bx;
+		default: SrcBout = 32'h0;
 		endcase
 	end
 	
@@ -115,14 +136,17 @@ always @(*) begin
 		2'b10: begin
 		ResultOut = aluOut;
 		end
-		default: ResultOut = 32'bx;
+		2'b11: begin
+		ResultOut = csr_rdata;
+		end
+		default: ResultOut = 32'h0;
 		endcase
 	end
 	
     dff_en pcnext(
     	.clk(clk),
 	.rst(rst),
-	.d(ResultOut),
+	.d(pc_next),
 	.en(PCWrite),
 	.q(pcout)
     );
@@ -199,10 +223,28 @@ always @(*) begin
 	.rs1(rs1),
 	.rs2(rs2),
 	.rd(rd),
+	.csr_addr(csr_addr),
 	.immext(immext)
 	);
 	
-	// this is no
+	// CSR module
+	CSR csr_file
+	(
+	.clk(clk),
+	.rst(rst),
+	.we(csr_we_sig),
+	.addr(csr_addr),
+	.wdata(out_A),  // CSR write data from rs1
+	.rdata(csr_rdata),
+	.trap_entry(trap_entry_sig),
+	.trap_pc(trap_pc_sig),
+	.trap_cause(mcause),
+	.mret(mret_sig),
+	.mtvec_out(mtvec_addr),
+	.mepc_out(mepc_addr)
+	);
+	
+	// Control Unit with trap handling
 	Control_Unit ctrl
 	(
 	.state_out(state_out),
@@ -215,6 +257,8 @@ always @(*) begin
 	.cmdOp(oldpcout[6:0]),
 	.cmdF3(oldpcout[14:12]),
 	.cmdF7(oldpcout[30]),
+	.aluResult(alupcOut),  // Use registered ALU output to break combinational loop
+	.current_pc(instr),  // Current instruction PC for trap context
     	.IRWrite(IRWrite),
     	.MemWrite(MemWrite),
     .PCWrite(PCWrite), // from Control Unit
@@ -231,7 +275,12 @@ always @(*) begin
     .ALUSrcA(ALUSrcA), //mux
     .ResultSrc(ResultSrc), // from Control Unit
     .regWrite(regWrite), //feds into Reg_file
-    .PCUpdate(PCUpdate)  //enable pcnext
+    .PCUpdate(PCUpdate),  //enable pcnext
+    .trap_entry(trap_entry_sig),
+    .trap_pc(trap_pc_sig),  // Output: PC to save
+    .mret_sig(mret_sig),
+    .csr_we(csr_we_sig),
+    .PCSrc(PCSrc)
 	);
 	
 	// this is right
@@ -252,3 +301,4 @@ always @(*) begin
 	.q(alupcOut)
 	);
 endmodule
+
