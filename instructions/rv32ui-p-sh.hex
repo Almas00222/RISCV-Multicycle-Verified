@@ -1,0 +1,244 @@
+0500006f  // j	80000050 <reset_vector>
+00800f93  // li	t6,8
+03ff0863  // beq	t5,t6,8000003c <write_tohost>
+00900f93  // li	t6,9
+03ff0463  // beq	t5,t6,8000003c <write_tohost>
+00b00f93  // li	t6,11
+03ff0063  // beq	t5,t6,8000003c <write_tohost>
+00000f13  // li	t5,0
+000f0463  // beqz	t5,8000002c <trap_vector+0x28>
+0040006f  // j	80000038 <handle_exception>
+5391e193  // ori	gp,gp,1337
+fc3f2223  // sw	gp,-60(t5) # 80001000 <tohost>
+fc0f2023  // sw	zero,-64(t5) # 80001004 <tohost+0x4>
+ff1ff06f  // j	8000003c <write_tohost>
+00000093  // li	ra,0
+00000113  // li	sp,0
+00000193  // li	gp,0
+00000213  // li	tp,0
+00000293  // li	t0,0
+00000313  // li	t1,0
+00000393  // li	t2,0
+00000413  // li	s0,0
+00000493  // li	s1,0
+00000513  // li	a0,0
+00000593  // li	a1,0
+00000613  // li	a2,0
+00000693  // li	a3,0
+00000713  // li	a4,0
+00000793  // li	a5,0
+00000813  // li	a6,0
+00000893  // li	a7,0
+00000913  // li	s2,0
+00000993  // li	s3,0
+00000a13  // li	s4,0
+00000a93  // li	s5,0
+00000b13  // li	s6,0
+00000b93  // li	s7,0
+00000c13  // li	s8,0
+00000c93  // li	s9,0
+00000d13  // li	s10,0
+00000d93  // li	s11,0
+00000e13  // li	t3,0
+00000e93  // li	t4,0
+00000f13  // li	t5,0
+00000f93  // li	t6,0
+01028293  // addi	t0,t0,16 # 800000e4 <reset_vector+0x94>
+01028293  // addi	t0,t0,16 # 800000f4 <reset_vector+0xa4>
+02028293  // addi	t0,t0,32 # 80000114 <reset_vector+0xc4>
+fff28293  // addi	t0,t0,-1 # 7fffffff <_start-0x1>
+01f00293  // li	t0,31
+01428293  // addi	t0,t0,20 # 8000012c <reset_vector+0xdc>
+00000193  // li	gp,0
+ed428293  // addi	t0,t0,-300 # 80000004 <trap_vector>
+00100513  // li	a0,1
+01f51513  // slli	a0,a0,0x1f
+00100193  // li	gp,1
+05d00893  // li	a7,93
+00000513  // li	a0,0
+00000073  // ecall
+00000293  // li	t0,0
+00028a63  // beqz	t0,80000174 <reset_vector+0x124>
+10928293  // addi	t0,t0,265 # b109 <_start-0x7fff4ef7>
+01428293  // addi	t0,t0,20 # 8000018c <test_2>
+00200193  // li	gp,2
+e7010113  // addi	sp,sp,-400 # 80002000 <begin_signature>
+0aa00093  // li	ra,170
+01478793  // addi	a5,a5,20 # 800001b0 <test_2+0x24>
+0080006f  // j	800001b4 <test_2+0x28>
+00008713  // mv	a4,ra
+0aa00393  // li	t2,170
+00300193  // li	gp,3
+e4010113  // addi	sp,sp,-448 # 80002000 <begin_signature>
+a0008093  // addi	ra,ra,-1536 # ffffaa00 <_end+0x7fff89e0>
+01478793  // addi	a5,a5,20 # 800001e4 <test_3+0x28>
+0080006f  // j	800001e8 <test_3+0x2c>
+00008713  // mv	a4,ra
+a0038393  // addi	t2,t2,-1536 # ffffaa00 <_end+0x7fff89e0>
+00400193  // li	gp,4
+e0810113  // addi	sp,sp,-504 # 80002000 <begin_signature>
+aa008093  // addi	ra,ra,-1376 # beef0aa0 <_end+0x3eeeea80>
+01478793  // addi	a5,a5,20 # 8000021c <test_4+0x28>
+00412703  // lw	a4,4(sp)
+0080006f  // j	80000220 <test_4+0x2c>
+00008713  // mv	a4,ra
+aa038393  // addi	t2,t2,-1376 # beef0aa0 <_end+0x3eeeea80>
+00500193  // li	gp,5
+dd010113  // addi	sp,sp,-560 # 80002000 <begin_signature>
+00a08093  // addi	ra,ra,10 # ffffa00a <_end+0x7fff7fea>
+01478793  // addi	a5,a5,20 # 80000254 <test_5+0x28>
+0080006f  // j	80000258 <test_5+0x2c>
+00008713  // mv	a4,ra
+00a38393  // addi	t2,t2,10 # ffffa00a <_end+0x7fff7fea>
+00600193  // li	gp,6
+da610113  // addi	sp,sp,-602 # 8000200e <tdat8>
+0aa00093  // li	ra,170
+01478793  // addi	a5,a5,20 # 80000288 <test_6+0x24>
+0080006f  // j	8000028c <test_6+0x28>
+00008713  // mv	a4,ra
+0aa00393  // li	t2,170
+00700193  // li	gp,7
+d7610113  // addi	sp,sp,-650 # 8000200e <tdat8>
+a0008093  // addi	ra,ra,-1536 # ffffaa00 <_end+0x7fff89e0>
+01478793  // addi	a5,a5,20 # 800002bc <test_7+0x28>
+0080006f  // j	800002c0 <test_7+0x2c>
+00008713  // mv	a4,ra
+a0038393  // addi	t2,t2,-1536 # ffffaa00 <_end+0x7fff89e0>
+00800193  // li	gp,8
+d3e10113  // addi	sp,sp,-706 # 8000200e <tdat8>
+aa008093  // addi	ra,ra,-1376 # aa0 <_start-0x7ffff560>
+01478793  // addi	a5,a5,20 # 800002f4 <test_8+0x28>
+0080006f  // j	800002f8 <test_8+0x2c>
+00008713  // mv	a4,ra
+aa038393  // addi	t2,t2,-1376 # aa0 <_start-0x7ffff560>
+00900193  // li	gp,9
+d0610113  // addi	sp,sp,-762 # 8000200e <tdat8>
+00a08093  // addi	ra,ra,10 # ffffa00a <_end+0x7fff7fea>
+01478793  // addi	a5,a5,20 # 8000032c <test_9+0x28>
+0080006f  // j	80000330 <test_9+0x2c>
+00008713  // mv	a4,ra
+00a38393  // addi	t2,t2,10 # ffffa00a <_end+0x7fff7fea>
+00a00193  // li	gp,10
+cd008093  // addi	ra,ra,-816 # 80002010 <tdat9>
+67810113  // addi	sp,sp,1656 # 12345678 <_start-0x6dcba988>
+fe008213  // addi	tp,ra,-32
+67838393  // addi	t2,t2,1656 # 5678 <_start-0x7fffa988>
+00b00193  // li	gp,11
+ca408093  // addi	ra,ra,-860 # 80002010 <tdat9>
+09810113  // addi	sp,sp,152 # 3098 <_start-0x7fffcf68>
+ffb08093  // addi	ra,ra,-5
+c8e20213  // addi	tp,tp,-882 # 80002012 <tdat10>
+09838393  // addi	t2,t2,152 # 3098 <_start-0x7fffcf68>
+00c00193  // li	gp,12
+00000213  // li	tp,0
+cdd68693  // addi	a3,a3,-803 # ffffccdd <_end+0x7fffacbd>
+c5460613  // addi	a2,a2,-940 # 80002000 <begin_signature>
+cdd38393  // addi	t2,t2,-803 # ffffccdd <_end+0x7fffacbd>
+00120213  // addi	tp,tp,1 # 1 <_start-0x7fffffff>
+00200293  // li	t0,2
+00d00193  // li	gp,13
+00000213  // li	tp,0
+ccd68693  // addi	a3,a3,-819 # ffffbccd <_end+0x7fff9cad>
+c1c60613  // addi	a2,a2,-996 # 80002000 <begin_signature>
+00000013  // nop
+ccd38393  // addi	t2,t2,-819 # ffffbccd <_end+0x7fff9cad>
+00120213  // addi	tp,tp,1 # 1 <_start-0x7fffffff>
+00200293  // li	t0,2
+00e00193  // li	gp,14
+00000213  // li	tp,0
+bcc68693  // addi	a3,a3,-1076 # ffffbbcc <_end+0x7fff9bac>
+be060613  // addi	a2,a2,-1056 # 80002000 <begin_signature>
+00000013  // nop
+00000013  // nop
+bcc38393  // addi	t2,t2,-1076 # ffffbbcc <_end+0x7fff9bac>
+00120213  // addi	tp,tp,1 # 1 <_start-0x7fffffff>
+00200293  // li	t0,2
+00f00193  // li	gp,15
+00000213  // li	tp,0
+bbc68693  // addi	a3,a3,-1092 # ffffabbc <_end+0x7fff8b9c>
+00000013  // nop
+b9c60613  // addi	a2,a2,-1124 # 80002000 <begin_signature>
+bbc38393  // addi	t2,t2,-1092 # ffffabbc <_end+0x7fff8b9c>
+00120213  // addi	tp,tp,1 # 1 <_start-0x7fffffff>
+00200293  // li	t0,2
+01000193  // li	gp,16
+00000213  // li	tp,0
+abb68693  // addi	a3,a3,-1349 # ffffaabb <_end+0x7fff8a9b>
+00000013  // nop
+b6060613  // addi	a2,a2,-1184 # 80002000 <begin_signature>
+00000013  // nop
+abb38393  // addi	t2,t2,-1349 # ffffaabb <_end+0x7fff8a9b>
+00120213  // addi	tp,tp,1 # 1 <_start-0x7fffffff>
+00200293  // li	t0,2
+01100193  // li	gp,17
+00000213  // li	tp,0
+aab68693  // addi	a3,a3,-1365 # ffffdaab <_end+0x7fffba8b>
+00000013  // nop
+00000013  // nop
+b1c60613  // addi	a2,a2,-1252 # 80002000 <begin_signature>
+aab38393  // addi	t2,t2,-1365 # ffffdaab <_end+0x7fffba8b>
+00120213  // addi	tp,tp,1 # 1 <_start-0x7fffffff>
+00200293  // li	t0,2
+01200193  // li	gp,18
+00000213  // li	tp,0
+aec10113  // addi	sp,sp,-1300 # 80002000 <begin_signature>
+23308093  // addi	ra,ra,563 # 2233 <_start-0x7fffddcd>
+23338393  // addi	t2,t2,563 # 2233 <_start-0x7fffddcd>
+00120213  // addi	tp,tp,1 # 1 <_start-0x7fffffff>
+00200293  // li	t0,2
+01300193  // li	gp,19
+00000213  // li	tp,0
+ab410113  // addi	sp,sp,-1356 # 80002000 <begin_signature>
+22308093  // addi	ra,ra,547 # 1223 <_start-0x7fffeddd>
+00000013  // nop
+22338393  // addi	t2,t2,547 # 1223 <_start-0x7fffeddd>
+00120213  // addi	tp,tp,1 # 1 <_start-0x7fffffff>
+00200293  // li	t0,2
+01400193  // li	gp,20
+00000213  // li	tp,0
+a7810113  // addi	sp,sp,-1416 # 80002000 <begin_signature>
+12208093  // addi	ra,ra,290 # 1122 <_start-0x7fffeede>
+00000013  // nop
+00000013  // nop
+12238393  // addi	t2,t2,290 # 1122 <_start-0x7fffeede>
+00120213  // addi	tp,tp,1 # 1 <_start-0x7fffffff>
+00200293  // li	t0,2
+01500193  // li	gp,21
+00000213  // li	tp,0
+a3810113  // addi	sp,sp,-1480 # 80002000 <begin_signature>
+00000013  // nop
+11200093  // li	ra,274
+11200393  // li	t2,274
+00120213  // addi	tp,tp,1 # 1 <_start-0x7fffffff>
+00200293  // li	t0,2
+01600193  // li	gp,22
+00000213  // li	tp,0
+a0410113  // addi	sp,sp,-1532 # 80002000 <begin_signature>
+00000013  // nop
+01100093  // li	ra,17
+00000013  // nop
+01100393  // li	t2,17
+00120213  // addi	tp,tp,1 # 1 <_start-0x7fffffff>
+00200293  // li	t0,2
+01700193  // li	gp,23
+00000213  // li	tp,0
+9cc10113  // addi	sp,sp,-1588 # 80002000 <begin_signature>
+00000013  // nop
+00000013  // nop
+00108093  // addi	ra,ra,1 # 3001 <_start-0x7fffcfff>
+00138393  // addi	t2,t2,1 # 3001 <_start-0x7fffcfff>
+00120213  // addi	tp,tp,1 # 1 <_start-0x7fffffff>
+00200293  // li	t0,2
+eef50513  // addi	a0,a0,-273 # beef <_start-0x7fff4111>
+98c58593  // addi	a1,a1,-1652 # 80002000 <begin_signature>
+00018063  // beqz	gp,80000688 <fail+0x4>
+00119193  // slli	gp,gp,0x1
+0011e193  // ori	gp,gp,1
+05d00893  // li	a7,93
+00018513  // mv	a0,gp
+00000073  // ecall
+00100193  // li	gp,1
+05d00893  // li	a7,93
+00000513  // li	a0,0
+00000073  // ecall
+0000beef  // jal	t4,8000d012 <_end+0xaff2>

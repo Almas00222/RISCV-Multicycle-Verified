@@ -1,0 +1,110 @@
+0500006f  // j	80000050 <reset_vector>
+00800f93  // li	t6,8
+03ff0863  // beq	t5,t6,8000003c <write_tohost>
+00900f93  // li	t6,9
+03ff0463  // beq	t5,t6,8000003c <write_tohost>
+00b00f93  // li	t6,11
+03ff0063  // beq	t5,t6,8000003c <write_tohost>
+00000f13  // li	t5,0
+000f0463  // beqz	t5,8000002c <trap_vector+0x28>
+0040006f  // j	80000038 <handle_exception>
+5391e193  // ori	gp,gp,1337
+fc3f2223  // sw	gp,-60(t5) # 80001000 <tohost>
+fc0f2023  // sw	zero,-64(t5) # 80001004 <tohost+0x4>
+ff1ff06f  // j	8000003c <write_tohost>
+00000093  // li	ra,0
+00000113  // li	sp,0
+00000193  // li	gp,0
+00000213  // li	tp,0
+00000293  // li	t0,0
+00000313  // li	t1,0
+00000393  // li	t2,0
+00000413  // li	s0,0
+00000493  // li	s1,0
+00000513  // li	a0,0
+00000593  // li	a1,0
+00000613  // li	a2,0
+00000693  // li	a3,0
+00000713  // li	a4,0
+00000793  // li	a5,0
+00000813  // li	a6,0
+00000893  // li	a7,0
+00000913  // li	s2,0
+00000993  // li	s3,0
+00000a13  // li	s4,0
+00000a93  // li	s5,0
+00000b13  // li	s6,0
+00000b93  // li	s7,0
+00000c13  // li	s8,0
+00000c93  // li	s9,0
+00000d13  // li	s10,0
+00000d93  // li	s11,0
+00000e13  // li	t3,0
+00000e93  // li	t4,0
+00000f13  // li	t5,0
+00000f93  // li	t6,0
+01028293  // addi	t0,t0,16 # 800000e4 <reset_vector+0x94>
+01028293  // addi	t0,t0,16 # 800000f4 <reset_vector+0xa4>
+02028293  // addi	t0,t0,32 # 80000114 <reset_vector+0xc4>
+fff28293  // addi	t0,t0,-1 # 7fffffff <_start-0x1>
+01f00293  // li	t0,31
+01428293  // addi	t0,t0,20 # 8000012c <reset_vector+0xdc>
+00000193  // li	gp,0
+ed428293  // addi	t0,t0,-300 # 80000004 <trap_vector>
+00100513  // li	a0,1
+01f51513  // slli	a0,a0,0x1f
+00100193  // li	gp,1
+05d00893  // li	a7,93
+00000513  // li	a0,0
+00000073  // ecall
+00000293  // li	t0,0
+00028a63  // beqz	t0,80000174 <reset_vector+0x124>
+10928293  // addi	t0,t0,265 # b109 <_start-0x7fff4ef7>
+01428293  // addi	t0,t0,20 # 8000018c <test_2>
+00200193  // li	gp,2
+00000293  // li	t0,0
+01030313  // addi	t1,t1,16 # 800001a4 <target_2>
+0e00006f  // j	80000280 <fail>
+ffc30313  // addi	t1,t1,-4 # 800001a0 <linkaddr_2>
+00300193  // li	gp,3
+01028293  // addi	t0,t0,16 # 800001c4 <target_3>
+0c00006f  // j	80000280 <fail>
+ffc30313  // addi	t1,t1,-4 # 800001c0 <linkaddr_3>
+00400193  // li	gp,4
+00000213  // li	tp,0
+01030313  // addi	t1,t1,16 # 800001e8 <test_4+0x18>
+00120213  // addi	tp,tp,1 # 1 <_start-0x7fffffff>
+00200293  // li	t0,2
+00500193  // li	gp,5
+00000213  // li	tp,0
+01430313  // addi	t1,t1,20 # 80000210 <test_5+0x1c>
+00000013  // nop
+00120213  // addi	tp,tp,1 # 1 <_start-0x7fffffff>
+00200293  // li	t0,2
+00600193  // li	gp,6
+00000213  // li	tp,0
+01830313  // addi	t1,t1,24 # 8000023c <test_6+0x20>
+00000013  // nop
+00000013  // nop
+00120213  // addi	tp,tp,1 # 1 <_start-0x7fffffff>
+00200293  // li	t0,2
+00700193  // li	gp,7
+00100293  // li	t0,1
+01c30313  // addi	t1,t1,28 # 8000026c <test_7+0x24>
+00128293  // addi	t0,t0,1
+00128293  // addi	t0,t0,1
+00128293  // addi	t0,t0,1
+00128293  // addi	t0,t0,1
+00128293  // addi	t0,t0,1
+00128293  // addi	t0,t0,1
+00400393  // li	t2,4
+00018063  // beqz	gp,80000284 <fail+0x4>
+00119193  // slli	gp,gp,0x1
+0011e193  // ori	gp,gp,1
+05d00893  // li	a7,93
+00018513  // mv	a0,gp
+00000073  // ecall
+00100193  // li	gp,1
+05d00893  // li	a7,93
+00000513  // li	a0,0
+00000073  // ecall

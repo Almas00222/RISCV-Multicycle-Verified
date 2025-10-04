@@ -8,7 +8,7 @@ all:
 	verilator --assert --Wall --cc --trace $(RTL_FILES) --exe $(TB_FILES)
 	$(MAKE) -C obj_dir -f Vtop.mk
 	if [ -f $(TEST) ]; then \
-		test_name=$$(cat $(TEST)) && ./obj_dir/Vtop | tee ./results/$$test_name-result.txt; \
+		test_name=$$(cat $(TEST)) && ./obj_dir/Vtop +MEMFILE=instructions/$$test_name.hex | tee ./results/$$test_name-result.txt; \
 	else \
 		./obj_dir/Vtop | tee ./results/unknown_test-result.txt; \
 	fi

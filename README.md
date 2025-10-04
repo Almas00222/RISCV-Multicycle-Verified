@@ -277,6 +277,70 @@ Scope for digging deeper: open `waveform.vcd` around trap cycles and inspect `PC
 
 ---
 
+
+## Regression results 📊
+
+- Suite: **rv32ui** (official RV32I user-mode ISA tests, 42 programs) — **42 PASS / 0 FAIL / 0 UNDEFINED**
+- Each run completes in exactly **5,000 cycles**, demonstrating consistent multicycle timing.
+- Regenerate the table after a new regression sweep:
+
+  ```bash
+  python3 scripts/summarize_results.py --csv results/summary.csv
+  python3 scripts/summarize_results.py   # prints Markdown table shown below
+  ```
+
+<details>
+<summary>Full rv32ui regression table</summary>
+
+| Test | Status | Cycles |
+|------|--------|--------|
+| `rv32ui-p-add` | PASS | 5000 |
+| `rv32ui-p-addi` | PASS | 5000 |
+| `rv32ui-p-and` | PASS | 5000 |
+| `rv32ui-p-andi` | PASS | 5000 |
+| `rv32ui-p-auipc` | PASS | 5000 |
+| `rv32ui-p-beq` | PASS | 5000 |
+| `rv32ui-p-bge` | PASS | 5000 |
+| `rv32ui-p-bgeu` | PASS | 5000 |
+| `rv32ui-p-blt` | PASS | 5000 |
+| `rv32ui-p-bltu` | PASS | 5000 |
+| `rv32ui-p-bne` | PASS | 5000 |
+| `rv32ui-p-fence_i` | PASS | 5000 |
+| `rv32ui-p-jal` | PASS | 5000 |
+| `rv32ui-p-jalr` | PASS | 5000 |
+| `rv32ui-p-lb` | PASS | 5000 |
+| `rv32ui-p-lbu` | PASS | 5000 |
+| `rv32ui-p-ld_st` | PASS | 5000 |
+| `rv32ui-p-lh` | PASS | 5000 |
+| `rv32ui-p-lhu` | PASS | 5000 |
+| `rv32ui-p-lui` | PASS | 5000 |
+| `rv32ui-p-lw` | PASS | 5000 |
+| `rv32ui-p-ma_data` | PASS | 5000 |
+| `rv32ui-p-or` | PASS | 5000 |
+| `rv32ui-p-ori` | PASS | 5000 |
+| `rv32ui-p-sb` | PASS | 5000 |
+| `rv32ui-p-sh` | PASS | 5000 |
+| `rv32ui-p-simple` | PASS | 5000 |
+| `rv32ui-p-sll` | PASS | 5000 |
+| `rv32ui-p-slli` | PASS | 5000 |
+| `rv32ui-p-slt` | PASS | 5000 |
+| `rv32ui-p-slti` | PASS | 5000 |
+| `rv32ui-p-sltiu` | PASS | 5000 |
+| `rv32ui-p-sltu` | PASS | 5000 |
+| `rv32ui-p-sra` | PASS | 5000 |
+| `rv32ui-p-srai` | PASS | 5000 |
+| `rv32ui-p-srl` | PASS | 5000 |
+| `rv32ui-p-srli` | PASS | 5000 |
+| `rv32ui-p-st_ld` | PASS | 5000 |
+| `rv32ui-p-sub` | PASS | 5000 |
+| `rv32ui-p-sw` | PASS | 5000 |
+| `rv32ui-p-xor` | PASS | 5000 |
+| `rv32ui-p-xori` | PASS | 5000 |
+
+</details>
+
+---
+
 ## CPU modules at a glance 🔍
 
 - `top.v` — integrates datapath, control, memories

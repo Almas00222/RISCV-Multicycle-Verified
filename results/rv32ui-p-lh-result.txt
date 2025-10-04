@@ -1,6 +1,6 @@
 Starting simulation...
 VCD waveform file: waveform.vcd
-instrmemory: Loading instructions from instructions/rv32ui-p-lw.hex
+instrmemory: Loading instructions from instructions/rv32ui-p-lh.hex
 PASS
 Simulation complete. Total cycles: 5000
 To view waveforms, run: gtkwave waveform.vcd
