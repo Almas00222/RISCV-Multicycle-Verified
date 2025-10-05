@@ -88,6 +88,19 @@ gcc --version
 ├── Makefile
 ├── .test                      # Auto-created: remembers your chosen test (just the name, no extension)
 ├── instructions/              # Generated .hex programs
+## Architecture visuals 🖼️
+
+Curious how the datapath and control flow wire together? Two diagrams in `fig/` walk through the most important parts of the core:
+
+- **`fig/alu_diagram.png` — ALU functional units**  
+  Shows the shared operand inputs (`in_a`, `in_b`) feeding a bank of combinational units (shift, arithmetic, logic, compare) whose outputs funnel into the ALU result mux. The zero flag generator highlighted on the right is what the branch hardware and trap handler key off. Use this diagram when you need to reason about which ALU operation a given `ALUdec` code selects, or when adding a new op.
+- **`fig/fsm_diagram.png` — Multicycle control FSM**  
+  Depicts all 13 states (`s0`–`s12`) in `Control_Unit.v`, the transitions between them, and the major control signals asserted in each state. Follow the arrows to understand when the design fetches, decodes, performs ALU work, touches memory, or handles traps (`s11`/`s12`). It doubles as a debugging aid: if you get “stuck,” compare the waveform’s `state` probe against this chart.
+
+> Tip: Open the PNGs in your viewer of choice or drop them into documentation/photos for presentations—the resolution is tuned for slide decks as well as printouts.
+
+---
+
 ├── results/                   # Simulation logs per test
 ├── riscv-tests/               # Official ISA tests (git submodule)
 ├── rtl/                       # CPU RTL
@@ -107,6 +120,22 @@ gcc --version
         ├── testbench.cpp      # Verilator C++ testbench
         └── dpi_functions.c    # DPI helper functions
 ```
+
+---
+
+## Instruction ROM & result artifacts 📄
+
+Every test you run produces two files—one in `instructions/`, one in `results/`—and understanding them makes regression triage faster:
+
+- **`instructions/<test>.hex`**  
+  Raw hexadecimal words that seed the instruction memory (`instrmemory.v`). These are generated either via `make rv-test` or a manual `converter.py` invocation. The format matches the ROM expectations (little endian, 32-bit words per line), so you can also craft custom programs by dropping in your own `.hex` file.
+- **`results/<test>-result.txt`**  
+  Captures the simulator banner, trap status, and any `$display` output. Helpful heuristics:
+  - `PASS`/`FAIL`/`UNDEFINED` lines near the end so you can grep across the folder.
+  - Cycle counts are included for easy performance comparisons.
+  - When a test misbehaves, diff the latest log against a known-good one to spot divergences quickly.
+
+Need a quick sweep? Combine `grep PASS results/*.txt` with the regression scripts in `scripts/` to regenerate summary tables.
 
 ---
 
